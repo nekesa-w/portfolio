@@ -4,218 +4,188 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Portfolio</title>
-		<link rel="icon" type="image" href="images/logo.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="icon" type="image" href="images/logo1.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
 			rel="stylesheet"
 		/>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						fontFamily: {
+							inter: ["Inter", "sans-serif"],
+						},
+					},
+				},
+			};
+		</script>
 		<style>
 			html,
 			body {
 				scroll-behavior: smooth;
 				height: 100%;
-				overflow-y: hidden;
-				background: white;
 				margin: 0;
 				padding: 0;
 			}
 
 			.scroll-container {
+				display: flex;
 				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				overflow-x: auto;
-				overflow-y: hidden;
+				width: 100vw;
 				height: 100vh;
+			}
+
+			.scroller {
+				--scrollbar-width: auto;
+				scrollbar-width: var(--scrollbar-width);
+				scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
+				overflow-x: scroll;
+				overflow-y: hidden;
+				position: relative;
+			}
+
+			.scroller::-webkit-scrollbar {
+				height: 20px;
+				background: transparent;
+			}
+
+			.scroller::-webkit-scrollbar-thumb {
+				background-color: rgba(0, 0, 0, 0.6);
+				border-radius: 10px;
+				border: 3px solid transparent;
+				background-clip: padding-box;
+			}
+
+			.scroller::-webkit-scrollbar-track {
+				background: transparent;
 			}
 
 			.div {
 				scroll-snap-align: start;
 				width: 100vw;
+				height: 100vh;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
 				flex-shrink: 0;
 			}
 
-			#home {
-				background-image: url("images/home-desktop.png");
+			.moving-gradients {
+				border-radius: 20px;
+				filter: blur(60px);
+				opacity: 0.6;
+				background: radial-gradient(
+					at 50% 50%,
+					#ff0000,
+					#ff9900,
+					#ffff00,
+					#800080
+				);
+				background-size: 400% 400%;
+				animation: morphGradient 10s ease-in-out infinite;
+				pointer-events: none;
 			}
 
-			#about {
-				background-image: url("images/about-desktop.png");
+			@keyframes morphGradient {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
 			}
 
-			#portfolio1 {
-				background-image: url("images/portfolio1-desktop.png");
-			}
-
-			#portfolio2 {
-				background-image: url("images/portfolio2-desktop.png");
-			}
-
-			#portfolio3 {
-				background-image: url("images/portfolio3-desktop.png");
-			}
-
-			#portfolio4 {
-				background-image: url("images/portfolio4-desktop.png");
-			}
-
-			#portfolio5 {
-				background-image: url("images/portfolio5-desktop.png");
-			}
-
-			#portfolio6 {
-				background-image: url("images/portfolio6-desktop.png");
-			}
-
-			#art {
-				background-image: url("images/art-desktop.png");
-			}
-
-			#contact {
-				background-image: url("images/contact-desktop.png");
-			}
-
-			@media (max-width: 768px) {
-				#home {
-					background-image: url("images/home-mobile.png");
-				}
-				#about {
-					background-image: url("images/about-mobile.png");
-				}
-				#portfolio1 {
-					background-image: url("images/portfolio1-mobile.png");
-				}
-				#portfolio2 {
-					background-image: url("images/portfolio2-mobile.png");
-				}
-				#portfolio3 {
-					background-image: url("images/portfolio3-mobile.png");
-				}
-				#portfolio4 {
-					background-image: url("images/portfolio4-mobile.png");
-				}
-				#portfolio5 {
-					background-image: url("images/portfolio5-mobile.png");
-				}
-				#portfolio6 {
-					background-image: url("images/portfolio6-mobile.png");
-				}
-				#art {
-					background-image: url("images/art-mobile.png");
-				}
-				#contact {
-					background-image: url("images/contact-mobile.png");
-				}
+			.overlay-rectangle {
+				background-color: rgba(200, 200, 200, 0.8);
+				border: 1px solid rgba(255, 255, 255, 0.6);
+				border-radius: 5px;
+				box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				background: repeating-linear-gradient(
+					to right,
+					rgba(255, 255, 204, 0.2) 0%,
+					rgba(0, 0, 0, 0.1) 50%,
+					rgba(144, 189, 204, 0.2) 70%,
+					rgba(179, 185, 187, 0.2) 90%,
+					rgba(0, 0, 0, 0.1) 99%
+				);
+				background-size: 1.5% 100%;
 			}
 		</style>
 	</head>
-	<body class="text-black bg-white">
-		<header
-			class="fixed top-0 left-0 w-full bg-white text-black z-50 font-[Baskervville]"
-		>
-			<nav class="flex flex-row justify-between py-4 mx-20 text-3xl">
-				<a href="#home" class="hover:text-rose-500 transition">HOME</a>
-				<a href="#about" class="hover:text-rose-500 transition">ABOUT</a>
-				<a href="#contact" class="hover:text-rose-500 transition">CONTACT</a>
+	<body class="text-zinc-800 bg-white font-inter font-extralight">
+		<header class="fixed top-0 left-0 w-full z-50" id="navbar">
+			<nav class="mx-auto w-[75vw] flex flex-row justify-between py-4 text-3xl">
+				<a href="#home" class="hover:text-amber-400 transition">HOME</a>
+				<a href="#resume" class="hover:text-amber-400 transition">RESUME</a>
+				<a href="#portfolio1" class="hover:text-amber-400 transition"
+					>PORTFOLIO</a
+				>
+				<a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
 			</nav>
 		</header>
 
-		<main class="flex scroll-container">
-			<div id="home" class="div">
+		<main class="scroll-container scroller" id="mainContent">
+			<div id="home" class="div relative flex justify-center pt-6">
 				<div
-					class="flex flex-col items-center text-amber-300 space-y-[-130px] mt-9"
+					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[70vh] moving-gradients z-0"
+				></div>
+				<div
+					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] overlay-rectangle z-10"
+				></div>
+				<div
+					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] text-white flex flex-col z-20"
 				>
-					<div class="flex flex-row items-center">
-						<h1
-							class="text-[200px] mr-6"
-							style="font-family: 'Pinyon Script', cursive"
-						>
-							N
-						</h1>
-						<h1 class="text-9xl tracking-tighter font-[Roboto]">ICOLE</h1>
+					<div class="flex flex-row justify-between w-full px-6 pt-6">
+						<p class="text-3xl">Frontend Developer <br />UI/UX Designer</p>
+						<p class="text-3xl">Nairobi, Kenya</p>
 					</div>
-					<div class="flex flex-row items-center">
-						<h1
-							class="text-[200px] mr-5"
-							style="font-family: 'Pinyon Script', cursive"
-						>
-							W
-						</h1>
-						<h1 class="text-9xl tracking-tighter font-[Roboto]">ASIKE</h1>
+					<div
+						class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] text-white z-20 flex items-center justify-center"
+					>
+						<p class="text-5xl">Nicole Wasike</p>
 					</div>
 				</div>
 			</div>
 
-			<div id="about" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">About</h1>
+			<div id="resume" class="div">
+				<h1 class="text-5xl font-bold">Resume</h1>
 			</div>
-
 			<div id="portfolio1" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 1</h1>
+				<h1 class="text-5xl font-bold">Portfolio 1</h1>
 			</div>
-
 			<div id="portfolio2" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 2</h1>
+				<h1 class="text-5xl font-bold">Portfolio 2</h1>
 			</div>
-
 			<div id="portfolio3" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 3</h1>
+				<h1 class="text-5xl font-bold">Portfolio 3</h1>
 			</div>
-
 			<div id="portfolio4" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 4</h1>
+				<h1 class="text-5xl font-bold">Portfolio 4</h1>
 			</div>
-
 			<div id="portfolio5" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 5</h1>
+				<h1 class="text-5xl font-bold">Portfolio 5</h1>
 			</div>
-
 			<div id="portfolio6" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Portfolio 6</h1>
+				<h1 class="text-5xl font-bold">Portfolio 6</h1>
 			</div>
-
-			<div id="art" class="div">
-				<h1 class="text-5xl font-bold drop-shadow-lg">Art</h1>
-			</div>
-
 			<div id="contact" class="div">
-				<h1 class="text-5xl font-bold mb-4 drop-shadow-lg">Contact</h1>
-				<a
-					href="#home"
-					class="text-xl underline text-blue-300 hover:text-blue-500 drop-shadow-lg"
-				>
-					Back to Home
-				</a>
+				<div class="flex flex-col items-center text-black mt-9">
+					<h1 class="text-5xl font-bold mb-4">Contact</h1>
+					<p>Tel: 0720 018 492</p>
+					<p>Email: njnwasike@gmail.com</p>
+					<p>Portfolio: nekesa-w.github.io/portfolio/</p>
+					<p>GitHub: nekesa-w</p>
+				</div>
 			</div>
 		</main>
-
-		<footer
-			class="fixed bottom-3 left-0 w-full bg-white text-black z-50 font-[Baskervville]"
-		>
-			<nav
-				class="relative flex items-center justify-center px-20 py-4 text-lg italic"
-			>
-				<div class="absolute left-20 leading-tight">
-					<span>NAIROBI,</span><br />
-					<span>KENYA</span>
-				</div>
-
-				<div class="text-center leading-tight">"FORM FOLLOWS FUNCTION"</div>
-
-				<div class="absolute right-20 text-right leading-tight">
-					<span>FRONT-END DEVELOPER</span><br />
-					<span>UI/UX DESIGNER</span>
-				</div>
-			</nav>
-		</footer>
 	</body>
 </html>
