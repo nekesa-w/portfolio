@@ -1,191 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Portfolio</title>
-		<link rel="icon" type="image" href="images/logo1.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-			rel="stylesheet"
-		/>
-		<script src="https://cdn.tailwindcss.com"></script>
-		<script>
-			tailwind.config = {
-				theme: {
-					extend: {
-						fontFamily: {
-							inter: ["Inter", "sans-serif"],
-						},
-					},
-				},
-			};
-		</script>
-		<style>
-			html,
-			body {
-				scroll-behavior: smooth;
-				height: 100%;
-				margin: 0;
-				padding: 0;
-			}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>NW's Portfolio</title>
+        <link rel="icon" type="image" href="images/logo1.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            inter: ["Inter", "sans-serif"],
+                            robo: ["Roboto Mono", "monospace"],
+                        },
+                        keyframes: {
+                            popUp: {
+                                "0%": {
+                                    opacity: "0",
+                                },
+                                "100%": {
+                                    opacity: "1",
+                                },
+                            },
+                        },
+                        animation: {
+                            sticky: "popUp 0.5s ease-out forwards",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+            }
 
-			.scroll-container {
-				display: flex;
-				scroll-snap-type: x mandatory;
-				width: 100vw;
-				height: 100vh;
-			}
+            .parallax-layer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 300%;
+                will-change: transform;
+            }
 
-			.scroller {
-				--scrollbar-width: auto;
-				scrollbar-width: var(--scrollbar-width);
-				scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
-				overflow-x: scroll;
-				overflow-y: hidden;
-				position: relative;
-			}
+            .layer-text {
+                font-size: 8rem;
+                font-weight: bold;
+                opacity: 0.05;
+                white-space: nowrap;
+            }
 
-			.scroller::-webkit-scrollbar {
-				height: 20px;
-				background: transparent;
-			}
+            .circle {
+                border-radius: 9999px;
+                opacity: 0.3;
+                filter: blur(100px);
+                position: absolute;
+            }
+        </style>
+    </head>
 
-			.scroller::-webkit-scrollbar-thumb {
-				background-color: rgba(0, 0, 0, 0.6);
-				border-radius: 10px;
-				border: 3px solid transparent;
-				background-clip: padding-box;
-			}
+    <body
+        class="font-inter relative flex h-screen w-screen flex-col overflow-hidden bg-white font-extralight text-stone-600"
+    >
+        <div
+            id="parallax"
+            class="pointer-events-none fixed left-0 top-0 h-full w-full overflow-hidden"
+        >
+            <div
+                class="parallax-layer z-0 bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200"
+                data-speed="0.2"
+            ></div>
 
-			.scroller::-webkit-scrollbar-track {
-				background: transparent;
-			}
+            <div
+                class="parallax-layer z-10 flex items-center whitespace-nowrap"
+                data-speed="0.4"
+            >
+                <div class="layer-text">
+                    NICOLE &nbsp; WASIKE &nbsp; PORTFOLIO &nbsp;
+                </div>
+            </div>
 
-			.div {
-				scroll-snap-align: start;
-				width: 100vw;
-				height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-shrink: 0;
-			}
+            <div class="parallax-layer z-20" data-speed="0.6">
+                <div
+                    class="circle left-1/3 top-1/4 h-96 w-96 bg-pink-300"
+                ></div>
+                <div
+                    class="circle left-2/4 top-2/3 h-64 w-64 bg-yellow-200"
+                ></div>
+                <div
+                    class="circle left-2/5 top-1/2 h-80 w-80 bg-blue-300"
+                ></div>
+            </div>
+        </div>
 
-			.moving-gradients {
-				border-radius: 20px;
-				filter: blur(60px);
-				opacity: 0.6;
-				background: radial-gradient(
-					at 50% 50%,
-					#ff0000,
-					#ff9900,
-					#ffff00,
-					#800080
-				);
-				background-size: 400% 400%;
-				animation: morphGradient 10s ease-in-out infinite;
-				pointer-events: none;
-			}
+        <main
+            class="scroller mx-auto flex h-screen w-screen snap-x snap-mandatory flex-row overflow-y-hidden overflow-x-scroll"
+            id="mainContent"
+        >
+            <div id="home" class="divcontent relative">
+                <p class="font-quick text-left text-2xl text-rose-400">
+                    Aspiring Front-end Developer <br />
+                    + UI/UX Designer <br />
+                </p>
+                <h1 class="text-9xl font-black">NICOLE WASIKE</h1>
+                <p class="font-quick text-right text-2xl text-rose-400">
+                    Nairobi, Kenya
+                </p>
+            </div>
 
-			@keyframes morphGradient {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
+            <div id="about" class="divcontent">
+                <div class="grid h-full w-full grid-cols-3 grid-rows-2 gap-2">
+                    <div class="flex items-center justify-center bg-white">
+                        <p class="p-10 text-center text-3xl">
+                            Hello, I am
+                            <span
+                                class="underline decoration-pink-500 transition-transform duration-300 ease-in-out hover:text-pink-500"
+                            >
+                                Nicole
+                            </span>
 
-			.overlay-rectangle {
-				background-color: rgba(200, 200, 200, 0.8);
-				border: 1px solid rgba(255, 255, 255, 0.6);
-				border-radius: 5px;
-				box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-				backdrop-filter: blur(10px);
-				-webkit-backdrop-filter: blur(10px);
-				background: repeating-linear-gradient(
-					to right,
-					rgba(255, 255, 204, 0.2) 0%,
-					rgba(0, 0, 0, 0.1) 50%,
-					rgba(144, 189, 204, 0.2) 70%,
-					rgba(179, 185, 187, 0.2) 90%,
-					rgba(0, 0, 0, 0.1) 99%
-				);
-				background-size: 1.5% 100%;
-			}
-		</style>
-	</head>
-	<body class="text-zinc-800 bg-white font-inter font-extralight">
-		<header class="fixed top-0 left-0 w-full z-50" id="navbar">
-			<nav class="mx-auto w-[75vw] flex flex-row justify-between py-4 text-3xl">
-				<a href="#home" class="hover:text-amber-400 transition">HOME</a>
-				<a href="#resume" class="hover:text-amber-400 transition">RESUME</a>
-				<a href="#portfolio1" class="hover:text-amber-400 transition"
-					>PORTFOLIO</a
-				>
-				<a href="#contact" class="hover:text-amber-400 transition">CONTACT</a>
-			</nav>
-		</header>
+                            — a Front-end Developer and UI/UX Designer from
+                            Nairobi, Kenya.
+                        </p>
+                    </div>
 
-		<main class="scroll-container scroller" id="mainContent">
-			<div id="home" class="div relative flex justify-center pt-6">
-				<div
-					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[70vh] moving-gradients z-0"
-				></div>
-				<div
-					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] overlay-rectangle z-10"
-				></div>
-				<div
-					class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] text-white flex flex-col z-20"
-				>
-					<div class="flex flex-row justify-between w-full px-6 pt-6">
-						<p class="text-3xl">Frontend Developer <br />UI/UX Designer</p>
-						<p class="text-3xl">Nairobi, Kenya</p>
-					</div>
-					<div
-						class="absolute left-1/2 transform -translate-x-1/2 w-[80vw] h-[80vh] text-white z-20 flex items-center justify-center"
-					>
-						<p class="text-5xl">Nicole Wasike</p>
-					</div>
-				</div>
-			</div>
+                    <div
+                        class="box relative flex items-center justify-center bg-yellow-200"
+                    >
+                        <p class="p-10 text-center text-3xl">
+                            I love responsive websites with a creative twist.
+                        </p>
+                    </div>
 
-			<div id="resume" class="div">
-				<h1 class="text-5xl font-bold">Resume</h1>
-			</div>
-			<div id="portfolio1" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 1</h1>
-			</div>
-			<div id="portfolio2" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 2</h1>
-			</div>
-			<div id="portfolio3" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 3</h1>
-			</div>
-			<div id="portfolio4" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 4</h1>
-			</div>
-			<div id="portfolio5" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 5</h1>
-			</div>
-			<div id="portfolio6" class="div">
-				<h1 class="text-5xl font-bold">Portfolio 6</h1>
-			</div>
-			<div id="contact" class="div">
-				<div class="flex flex-col items-center text-black mt-9">
-					<h1 class="text-5xl font-bold mb-4">Contact</h1>
-					<p>Tel: 0720 018 492</p>
-					<p>Email: njnwasike@gmail.com</p>
-					<p>Portfolio: nekesa-w.github.io/portfolio/</p>
-					<p>GitHub: nekesa-w</p>
-				</div>
-			</div>
-		</main>
-	</body>
+                    <div
+                        class="box relative flex items-center justify-center bg-green-200"
+                    >
+                        <p class="p-10 text-center text-3xl">
+                            My files, folders and bookmarks are very organized.
+                        </p>
+                    </div>
+
+                    <div
+                        class="box relative flex items-center justify-center bg-purple-200"
+                    >
+                        <p class="p-10 text-center text-3xl">
+                            I'm always exploring how to blend art and code.
+                        </p>
+                    </div>
+
+                    <div
+                        class="box relative flex items-center justify-center bg-blue-200"
+                    >
+                        <p class="p-10 text-center text-3xl">
+                            I get lost in books and music for hours.
+                        </p>
+                    </div>
+
+                    <div
+                        class="box relative flex items-center justify-center bg-pink-200"
+                    >
+                        <p class="p-10 text-center text-3xl"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cv" class="divcontent">
+                <h1 class="text-5xl font-bold">CV</h1>
+            </div>
+
+            <div id="frontend" class="divcontent">
+                <h1 class="text-5xl font-bold">Front-end</h1>
+            </div>
+
+            <div id="design" class="divcontent">
+                <h1 class="text-5xl font-bold">UI/UX</h1>
+            </div>
+
+            <div id="contact" class="divcontent">
+                <div class="mt-9 flex flex-col items-center text-black">
+                    <h1 class="mb-4 text-5xl font-bold">Contact</h1>
+                    <p>Tel: 0720 018 492</p>
+                    <p>Email: njnwasike@gmail.com</p>
+                    <p>GitHub: nekesa-w</p>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            const scroller = document.getElementById("mainContent");
+            const layers = document.querySelectorAll(".parallax-layer");
+
+            scroller.addEventListener(
+                "wheel",
+                function (e) {
+                    e.preventDefault();
+                    scroller.scrollBy({ left: e.deltaY, behavior: "smooth" });
+                },
+                { passive: false },
+            );
+
+            scroller.addEventListener("scroll", () => {
+                const scrollLeft = scroller.scrollLeft;
+                layers.forEach((layer) => {
+                    const speed = layer.dataset.speed;
+                    layer.style.transform = `translateX(-${scrollLeft * speed}px)`;
+                });
+            });
+        </script>
+    </body>
 </html>

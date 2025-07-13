@@ -1,0 +1,35 @@
+{
+    "extends": ["stylelint-config-standard"],
+    "plugins": ["stylelint-order"],
+    "ignoreFiles": ["**/*.html"],
+    "rules": {
+        "order/properties-order": [
+            [
+                "position",
+                "top",
+                "right",
+                "bottom",
+                "left",
+                "z-index",
+                "display",
+                "flex",
+                "align-items",
+                "justify-content",
+                "width",
+                "height",
+                "margin",
+                "padding",
+                "background",
+                "background-color",
+                "border",
+                "border-radius",
+                "box-shadow",
+                "transform",
+                "transition"
+            ],
+            {
+                "unspecified": "bottomAlphabetical"
+            }
+        ]
+    }
+}
