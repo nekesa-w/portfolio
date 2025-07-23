@@ -28,24 +28,41 @@
             class="fixed left-0 top-0 flex h-full w-full items-center justify-center overflow-hidden"
         >
             <div
-                class="parallax-layer z-30 flex h-[90vh] w-[90vw] flex-col items-center justify-center space-y-4 rounded-[10px] bg-black"
+                id="parallax-layer"
+                class="z-30 flex h-[90vh] w-[90vw] flex-col items-center justify-center space-y-4 rounded-[10px] bg-black"
             >
-                <h1 class="text-center text-6xl font-black text-neutral-500">
+                <h1
+                    id="frontend-title"
+                    class="text-center text-6xl font-black text-neutral-500"
+                >
                     FRONT-END DEVELOPER
                 </h1>
-                <h1 class="text-center text-8xl font-black text-white">
+                <h1
+                    id="name-title"
+                    class="text-center text-8xl font-black text-white"
+                >
                     NICOLE WASIKE
                     <span
+                        id="name-square"
                         class="inline-block h-6 w-6 bg-white align-baseline"
                     ></span>
                 </h1>
-                <h1 class="text-center text-7xl font-black text-neutral-500">
+                <h1
+                    id="uiux-title"
+                    class="text-center text-7xl font-black text-neutral-500"
+                >
                     UI/UX DESIGNER
                 </h1>
-                <p class="absolute bottom-12 left-24 text-3xl text-white">
+                <p
+                    id="location-text"
+                    class="absolute bottom-12 left-24 text-3xl text-white"
+                >
                     Nairobi, Kenya
                 </p>
-                <p class="absolute bottom-12 right-24 text-3xl text-white">
+                <p
+                    id="year-text"
+                    class="absolute bottom-12 right-24 text-3xl text-white"
+                >
                     <script>
                         document.write(new Date().getFullYear());
                     </script>
@@ -53,43 +70,56 @@
             </div>
 
             <div
+                id="parallax-text"
                 class="parallax-text absolute z-20 flex h-[90vh] w-[90vw] flex-col items-center justify-center"
             >
-                <h1 class="px-[5vw] text-8xl font-thin">
-                    <span class="font-thin italic">Nairobi</span> -Based
+                <h1 id="home-headline" class="px-[5vw] text-8xl font-thin">
+                    <span id="headline-nairobi" class="font-thin italic"
+                        >Nairobi</span
+                    >
+                    -Based
                     <span
+                        id="headline-square-1"
                         class="inline-block h-6 w-6 bg-black align-baseline"
                     ></span>
                     Front-End Developer & UI/UX Designer
                     <span
+                        id="headline-square-2"
                         class="inline-block h-6 w-6 bg-black align-baseline"
                     ></span>
-                    Blending <span class="font-thin italic">Code</span> And
-                    <span class="font-thin italic">Creativity</span>
+                    Blending
+                    <span id="headline-code" class="font-thin italic"
+                        >Code</span
+                    >
+                    And
+                    <span id="headline-creativity" class="font-thin italic"
+                        >Creativity</span
+                    >
                     <span
+                        id="headline-square-3"
                         class="inline-block h-6 w-6 bg-black align-baseline"
                     ></span>
                 </h1>
             </div>
         </div>
 
-        <main id="mainContent" class="relative z-20 flex h-screen flex-nowrap">
+        <main id="main-content" class="relative z-20 flex h-screen flex-nowrap">
             <section
-                id="frontend"
+                id="frontend-main"
                 class="flex h-screen w-screen flex-shrink-0 items-center justify-center"
             >
                 <h1 class="text-6xl font-bold">Front-end</h1>
             </section>
 
             <section
-                id="uiux"
+                id="uiux-main"
                 class="flex h-screen w-screen flex-shrink-0 items-center justify-center"
             >
                 <h1 class="text-6xl font-bold">UI/UX</h1>
             </section>
 
             <section
-                id="contact"
+                id="contact-main"
                 class="flex h-screen w-screen flex-shrink-0 items-center justify-center space-y-4 text-center"
             >
                 <div
@@ -105,7 +135,10 @@
             </section>
         </main>
 
-        <div class="fixed bottom-6 left-1/2 z-30 -translate-x-1/2">
+        <div
+            id="plus-main"
+            class="fixed bottom-6 left-1/2 z-30 -translate-x-1/2"
+        >
             <span class="text-6xl font-black text-black">+</span>
         </div>
 
@@ -113,6 +146,69 @@
         <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
         <script>
             gsap.registerPlugin(ScrollTrigger);
+
+            const introTl = gsap.timeline();
+
+            introTl
+                .from("#frontend-title", {
+                    scale: 0.8,
+                    rotationX: 30,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "back.out(1.7)",
+                })
+                .from(
+                    "#uiux-title",
+                    {
+                        scale: 0.8,
+                        rotationX: -30,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "back.out(1.7)",
+                    },
+                    "-=0.6",
+                )
+                .from(
+                    "#name-title",
+                    {
+                        scale: 0.8,
+                        rotationX: -30,
+                        opacity: 0,
+                        duration: 1.2,
+                        ease: "elastic.out(1, 0.5)",
+                    },
+                    "-=0.6",
+                )
+                .from(
+                    "#location-text",
+                    {
+                        scale: 0,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "back.out(1.7)",
+                    },
+                    "-=0.5",
+                )
+                .from(
+                    "#year-text",
+                    {
+                        scale: 0,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "back.out(1.7)",
+                    },
+                    "-=0.6",
+                )
+                .from(
+                    "#parallax-text",
+                    {
+                        scale: 1.2,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "expo.out",
+                    },
+                    "-=0.8",
+                );
 
             const parallaxTl = gsap.timeline({
                 scrollTrigger: {
@@ -123,22 +219,22 @@
                     pin: true,
                 },
             });
-            parallaxTl.to(".parallax-layer", {
+            parallaxTl.to("#parallax-layer", {
                 scale: 3,
                 opacity: 0,
                 ease: "power1.out",
             });
 
             const sections = document.querySelectorAll(
-                "#mainContent > section",
+                "#main-content > section",
             );
             const totalWidth = sections.length * window.innerWidth;
 
-            gsap.to("#mainContent", {
+            gsap.to("#main-content", {
                 x: () => -(totalWidth - window.innerWidth),
                 ease: "none",
                 scrollTrigger: {
-                    trigger: "#mainContent",
+                    trigger: "#main-content",
                     start: "top top",
                     end: () => "+=" + (totalWidth - window.innerWidth),
                     scrub: true,
@@ -146,11 +242,11 @@
                 },
             });
 
-            gsap.to(".fixed span", {
+            gsap.to("#plus-main span", {
                 rotation: 360,
                 ease: "none",
                 scrollTrigger: {
-                    trigger: "#mainContent",
+                    trigger: "#main-content",
                     start: "top top",
                     end: () => "+=" + (totalWidth - window.innerWidth),
                     scrub: true,
