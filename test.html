@@ -3,15 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>NW's Portfolio</title>
-        <link rel="icon" type="image" href="images/logo.png" />
+        <title>Nicole's Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -20,142 +18,247 @@
                 },
             };
         </script>
+        <style>
+            main {
+                height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scroll-snap-type: y mandatory;
+                scroll-behavior: smooth;
+            }
+            section {
+                scroll-snap-align: start;
+            }
+            main::-webkit-scrollbar {
+                width: 10px;
+            }
+            main::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                margin: 4px;
+            }
+            main::-webkit-scrollbar-thumb {
+                background-color: #000;
+                border-radius: 0;
+            }
+        </style>
     </head>
 
-    <body class="font-inter bg-white">
-        <div
-            id="parallax"
-            class="fixed left-0 top-0 flex h-full w-full items-center justify-center overflow-hidden"
-        >
-            <div
-                class="parallax-layer z-30 flex h-[90vh] w-[90vw] flex-col items-center justify-center space-y-4 rounded-[10px] bg-black"
-            >
-                <h1 class="text-center text-6xl font-black text-neutral-500">
-                    FRONT-END DEVELOPER
-                </h1>
-                <h1 class="text-center text-8xl font-black text-white">
-                    NICOLE WASIKE
-                    <span
-                        class="inline-block h-6 w-6 bg-white align-baseline"
-                    ></span>
-                </h1>
-                <h1 class="text-center text-7xl font-black text-neutral-500">
-                    UI/UX DESIGNER
-                </h1>
-                <p class="absolute bottom-12 left-24 text-3xl text-white">
-                    Nairobi, Kenya
-                </p>
-                <p class="absolute bottom-12 right-24 text-3xl text-white">
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                </p>
-            </div>
-
-            <div
-                class="parallax-text absolute z-20 flex h-[90vh] w-[90vw] flex-col items-center justify-center"
-            >
-                <h1 class="px-[5vw] text-8xl font-thin">
-                    <span class="font-thin italic">Nairobi</span> -Based
-                    <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
-                    ></span>
-                    Front-End Developer & UI/UX Designer
-                    <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
-                    ></span>
-                    Blending <span class="font-thin italic">Code</span> And
-                    <span class="font-thin italic">Creativity</span>
-                    <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
-                    ></span>
-                </h1>
-            </div>
-        </div>
-
-        <main id="mainContent" class="relative z-20 flex h-screen flex-nowrap">
+    <body class="font-inter">
+        <main>
             <section
-                id="frontend"
-                class="flex h-screen w-screen flex-shrink-0 items-center justify-center"
-            >
-                <h1 class="text-6xl font-bold">Front-end</h1>
-            </section>
-
-            <section
-                id="uiux"
-                class="flex h-screen w-screen flex-shrink-0 items-center justify-center"
-            >
-                <h1 class="text-6xl font-bold">UI/UX</h1>
-            </section>
-
-            <section
-                id="contact"
-                class="flex h-screen w-screen flex-shrink-0 items-center justify-center space-y-4 text-center"
+                class="flex h-screen w-screen items-center justify-center bg-white p-4 md:p-8"
             >
                 <div
-                    class="flex flex-col items-center justify-center space-y-4"
+                    class="black-box relative flex h-full w-full flex-col justify-center bg-black text-white"
                 >
-                    <h1 class="text-8xl font-bold">CONTACT ME</h1>
-                    <div class="text-5xl font-thin">
-                        <p>Tel: 0720 018 492</p>
-                        <p>Email: njnwasike@gmail.com</p>
-                        <p>GitHub: nekesa-w</p>
+                    <div
+                        id="intro-text"
+                        class="absolute top-4 w-full px-4 text-justify text-[2.5rem] uppercase md:top-20 md:px-20 md:text-[4rem]"
+                    >
+                        Hello, I am
+                        <span id="name-text" class="inline-block">
+                            Nicole Wasike
+                        </span>
+                        <span
+                            class="ml-2 inline-block h-4 w-4 bg-white align-baseline md:h-6 md:w-6"
+                        ></span>
+                        <span id="placeholder" class="inline-block">
+                            I am a Front-end Developer
+                        </span>
+                        <span class="inline-block w-full"></span>
                     </div>
+
+                    <div
+                        class="location-text absolute bottom-4 left-4 text-[1.5rem] md:bottom-20 md:left-20 md:text-[3rem]"
+                    >
+                        Nairobi, Kenya
+                    </div>
+
+                    <div
+                        class="year-text absolute bottom-4 right-4 text-[1.5rem] md:bottom-20 md:right-20 md:text-[3rem]"
+                    >
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-center bg-white p-4 md:p-8"
+            >
+                <h1
+                    class="max-w-4xl text-center text-5xl font-thin leading-relaxed"
+                >
+                    I like building things that people enjoy using
+                    <span
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
+                    ></span>
+                    I like clean code, but I also messy sketches that become
+                    something real
+                    <span
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
+                    ></span>
+                    I like learning new tools, breaking things, fixing them, and
+                    learning more in the process
+                    <span
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
+                    ></span>
+                </h1>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-between p-4 md:p-8"
+            >
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        NASSCONULT
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/nassconsult.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-between p-4 md:p-8"
+            >
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        NUFASA
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/nufasa.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-between p-4 md:p-8"
+            >
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        PAMO
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/pamo_website.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-center p-4 md:p-8"
+            >
+                <h1 class="relative text-8xl font-bold">
+                    UI/UX
+                    <span
+                        class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                    ></span>
+                </h1>
+            </section>
+
+            <section
+                class="flex h-screen w-screen flex-col items-center justify-center p-4 md:p-8"
+            >
+                <h1 class="relative text-8xl font-bold">
+                    CONTACT ME
+                    <span
+                        class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                    ></span>
+                </h1>
+                <div class="text-center text-5xl font-thin">
+                    <p>Tel: 0720 018 492</p>
+                    <p>Email: njnwasike@gmail.com</p>
+                    <p>GitHub: nekesa-w</p>
                 </div>
             </section>
         </main>
 
-        <div class="fixed bottom-6 left-1/2 z-30 -translate-x-1/2">
-            <span class="text-6xl font-black text-black">+</span>
-        </div>
-
-        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            const parallaxTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#parallax",
-                    start: "top top",
-                    end: "+=100%",
-                    scrub: true,
-                    pin: true,
-                },
-            });
-            parallaxTl.to(".parallax-layer", {
-                scale: 3,
+            gsap.from(".location-text, .year-text", {
                 opacity: 0,
-                ease: "power1.out",
+                y: 20,
+                duration: 2,
+                ease: "power3.out",
+            });
+            gsap.from("#intro-text", {
+                opacity: 0,
+                y: -20,
+                duration: 2,
+                delay: 1,
+                ease: "power3.out",
+            });
+            gsap.from("#name-text", {
+                x: -20,
+                opacity: 0,
+                duration: 2,
+                delay: 2,
+                ease: "power3.out",
+            });
+            gsap.from("#placeholder", {
+                x: 20,
+                opacity: 0,
+                duration: 2,
+                delay: 3,
+                ease: "power3.out",
             });
 
-            const sections = document.querySelectorAll(
-                "#mainContent > section",
-            );
-            const totalWidth = sections.length * window.innerWidth;
+            const roleTexts = [
+                "I am a Front-end Developer",
+                "I am a UI/UX Designer",
+                "I am an Artist",
+            ];
+            let currentRoleIndex = 0;
+            const rolePlaceholder = document.getElementById("placeholder");
 
-            gsap.to("#mainContent", {
-                x: () => -(totalWidth - window.innerWidth),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "#mainContent",
-                    start: "top top",
-                    end: () => "+=" + (totalWidth - window.innerWidth),
-                    scrub: true,
-                    pin: true,
-                },
-            });
-
-            gsap.to(".fixed span", {
-                rotation: 360,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "#mainContent",
-                    start: "top top",
-                    end: () => "+=" + (totalWidth - window.innerWidth),
-                    scrub: true,
-                },
-            });
+            gsap.set(rolePlaceholder, { y: 0 });
+            setInterval(() => {
+                gsap.to(rolePlaceholder, {
+                    onComplete: () => {
+                        currentRoleIndex =
+                            (currentRoleIndex + 1) % roleTexts.length;
+                        rolePlaceholder.textContent =
+                            roleTexts[currentRoleIndex];
+                    },
+                });
+            }, 2000);
         </script>
     </body>
 </html>

@@ -3,118 +3,206 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>NW's Portfolio</title>
-        <link rel="icon" type="image" href="images/logo.png" />
+        <title>Nicole's Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
                 theme: {
-                    extend: {
-                        fontFamily: {
-                            inter: ["Inter", "sans-serif"],
-                        },
-                    },
+                    extend: { fontFamily: { inter: ["Inter", "sans-serif"] } },
                 },
             };
         </script>
+        <style>
+            main {
+                height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                scroll-snap-type: y mandatory;
+                scroll-behavior: smooth;
+            }
+            section {
+                scroll-snap-align: start;
+            }
+            main::-webkit-scrollbar {
+                width: 12px;
+            }
+            main::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                margin: 4px;
+            }
+            main::-webkit-scrollbar-thumb {
+                background-color: #000;
+                border-radius: 0;
+            }
+        </style>
     </head>
 
-    <body class="font-inter relative bg-white">
-        <div
-            id="parallax"
-            class="pointer-events-none fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center overflow-hidden"
-        >
-            <div
-                class="parallax-plus absolute bottom-6 left-1/2 -translate-x-1/2"
-            >
-                <span class="text-6xl font-black text-black">+</span>
-            </div>
-
-            <div
-                class="parallax-layer flex h-[90vh] w-[90vw] flex-col items-center justify-center space-y-4 rounded-[10px] bg-black will-change-transform"
-                data-speed="0.6"
-            >
-                <h1 class="text-center text-6xl font-black text-neutral-500">
-                    FRONT-END DEVELOPER
-                </h1>
-                <h1 class="text-center text-8xl font-black text-white">
-                    NICOLE WASIKE
-                    <span
-                        class="inline-block h-6 w-6 bg-white align-baseline"
-                    ></span>
-                </h1>
-                <h1 class="text-center text-7xl font-black text-neutral-500">
-                    UI/UX DESIGNER
-                </h1>
-                <p class="absolute bottom-12 left-24 text-3xl text-white">
-                    Nairobi, Kenya
-                </p>
-                <p class="absolute bottom-12 right-24 text-3xl text-white">
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                </p>
-            </div>
-        </div>
-
-        <main
-            id="mainContent"
-            class="relative z-10 flex h-screen snap-x snap-mandatory flex-nowrap overflow-x-auto overflow-y-hidden"
-        >
+    <body class="font-inter">
+        <main>
             <section
-                id="home"
-                class="flex h-screen w-screen flex-shrink-0 snap-start items-center justify-center"
+                class="flex h-screen w-screen items-center justify-center bg-white p-8"
             >
-                <h1 class="px-[5vw] text-8xl font-thin">
-                    <span class="font-thin italic">Nairobi</span>
-                    -Based
+                <div
+                    class="black-box relative flex h-full w-full flex-col justify-center bg-black text-white"
+                >
+                    <div
+                        class="absolute top-16 w-full px-20 text-justify text-8xl uppercase text-white"
+                    >
+                        Hello, I am N<span class="italic">i</span>cole Was<span
+                            class="italic"
+                            >i</span
+                        >ke
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-white align-baseline"
+                        ></span>
+                        I am
+                        <span class="inline-block w-full"></span>
+                    </div>
+
+                    <div
+                        class="absolute bottom-32 w-full px-20 text-justify text-7xl uppercase text-white"
+                    >
+                        <span id="placeholder">a Front-end Developer</span>
+                        <span class="inline-block w-full"></span>
+                    </div>
+
+                    <div class="absolute bottom-16 left-20 text-3xl text-white">
+                        Nairobi, Kenya
+                    </div>
+                    <div
+                        class="absolute bottom-16 right-20 text-3xl text-white"
+                    >
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="flex h-screen w-screen items-center justify-center bg-white p-8"
+            >
+                <h1
+                    class="max-w-4xl text-center text-5xl font-thin leading-relaxed"
+                >
+                    I like building things that people enjoy using
                     <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
                     ></span>
-                    Front-End Developer & UI/UX Designer
+                    I like clean code, but I also messy sketches that become
+                    something real
                     <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
                     ></span>
-                    Blending <span class="font-thin italic">Code</span> And
-                    <span class="font-thin italic">Creativity</span>
+                    I like learning new tools, breaking things, fixing them, and
+                    learning more in the process
                     <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
+                        class="mx-1 inline-block h-3 w-3 bg-black align-baseline"
                     ></span>
                 </h1>
             </section>
 
             <section
-                id="frontend"
-                class="flex h-screen w-screen flex-shrink-0 snap-start items-center justify-center"
+                class="flex h-screen w-screen items-center justify-between p-8"
             >
-                <h1 class="text-6xl font-bold">Front-end</h1>
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        NASSCONULT
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/nassconsult.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
             </section>
 
             <section
-                id="uiux"
-                class="flex h-screen w-screen flex-shrink-0 snap-start items-center justify-center"
+                class="flex h-screen w-screen items-center justify-between p-8"
             >
-                <h1 class="text-6xl font-bold">UI/UX</h1>
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        NUFASA
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/nufasa.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
+            </section>
+            <section
+                class="flex h-screen w-screen items-center justify-between p-8"
+            >
+                <div class="relative flex h-full w-1/2 flex-col justify-center">
+                    <h1 class="relative text-8xl font-bold">
+                        PAMO
+                        <span
+                            class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                        ></span>
+                    </h1>
+                </div>
+                <div
+                    class="relative flex h-full w-1/2 items-center justify-center overflow-hidden"
+                >
+                    <div
+                        class="carousel-track flex transition-transform duration-500"
+                    >
+                        <img
+                            src="images/pamo_website.png"
+                            class="w-full flex-shrink-0"
+                        />
+                    </div>
+                </div>
             </section>
 
             <section
-                id="contact"
-                class="flex h-screen w-screen flex-shrink-0 snap-start flex-col items-center justify-center space-y-4 text-center"
+                class="flex h-screen w-screen items-center justify-center p-8"
             >
-                <h1 class="text-8xl font-bold">
+                <h1 class="relative text-8xl font-bold">
+                    UI/UX
+                    <span
+                        class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
+                    ></span>
+                </h1>
+            </section>
+
+            <section
+                class="flex h-screen w-screen flex-col items-center justify-center p-8"
+            >
+                <h1 class="relative text-8xl font-bold">
                     CONTACT ME
                     <span
-                        class="inline-block h-6 w-6 bg-black align-baseline"
+                        class="ml-2 inline-block h-6 w-6 bg-black align-baseline"
                     ></span>
                 </h1>
-                <div class="text-5xl font-thin">
+                <div class="text-center text-5xl font-thin">
                     <p>Tel: 0720 018 492</p>
                     <p>Email: njnwasike@gmail.com</p>
                     <p>GitHub: nekesa-w</p>
@@ -122,48 +210,20 @@
             </section>
         </main>
 
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
         <script>
-            const scroller = document.getElementById("mainContent");
-            const layers = document.querySelectorAll(".parallax-layer");
-            const plus = document.querySelector(".parallax-plus span");
+            const roles = [
+                "a Front-end Developer",
+                "a UI/UX Designer",
+                "an Artist",
+            ];
+            let index = 0;
+            const placeholder = document.getElementById("placeholder");
 
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "ArrowRight") {
-                    scroller.scrollBy({
-                        left: scrollAmount,
-                        behavior: "smooth",
-                    });
-                } else if (e.key === "ArrowLeft") {
-                    scroller.scrollBy({
-                        left: -scrollAmount,
-                        behavior: "smooth",
-                    });
-                }
-            });
-
-            scroller.addEventListener(
-                "wheel",
-                (e) => {
-                    e.preventDefault();
-                    scroller.scrollBy({
-                        left: e.deltaY,
-                        behavior: "smooth",
-                    });
-                },
-                { passive: false },
-            );
-
-            scroller.addEventListener("scroll", () => {
-                const scrollLeft = scroller.scrollLeft;
-                const direction = scrollLeft > lastScrollLeft ? 1 : -1;
-                rotation += direction * 5;
-                plus.style.transform = `rotate(${rotation}deg)`;
-                layers.forEach((layer) => {
-                    const speed = parseFloat(layer.dataset.speed) || 0;
-                    layer.style.transform = `translateX(-${scrollLeft * speed}px)`;
-                });
-                lastScrollLeft = scrollLeft;
-            });
+            setInterval(() => {
+                index = (index + 1) % roles.length;
+                placeholder.textContent = roles[index];
+            }, 2000);
         </script>
     </body>
 </html>
