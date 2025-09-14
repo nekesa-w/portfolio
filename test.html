@@ -36,14 +36,14 @@
                 overflow-y: hidden;
             }
             ::-webkit-scrollbar {
-                width: 10px;
+                width: 20px;
             }
             ::-webkit-scrollbar-track {
-                background: #fff;
+                background: #44403c;
             }
             ::-webkit-scrollbar-thumb {
-                background-color: #000;
-                border-radius: 0;
+                background-color: #fff;
+                border: 5px solid #44403c;
             }
         </style>
     </head>
@@ -224,7 +224,7 @@
                 </button>
 
                 <div
-                    class="mx-4 flex h-full w-full flex-col overflow-y-auto border border-stone-700"
+                    class="mx-[3vw] flex h-full w-full flex-col items-center justify-center overflow-y-auto"
                     id="pamo-images"
                 >
                     <img
@@ -309,7 +309,7 @@
                 </button>
 
                 <div
-                    class="mx-4 flex h-full w-full flex-col overflow-y-auto border border-stone-700"
+                    class="mx-[3vw] flex h-full w-full flex-col items-center justify-center overflow-y-auto"
                     id="afya-images"
                 >
                     <img
@@ -383,9 +383,9 @@
             class="section-nufasa flex h-screen w-screen items-center justify-center p-[4vw]"
         >
             <div
-                class="left-side-nufasa flex h-[90vh] w-1/2 overflow-y-auto border border-stone-700"
+                class="left-side-nufasa flex h-[90vh] w-1/2 items-center justify-center overflow-y-auto"
             >
-                <div class="flex w-full flex-col">
+                <div class="flex h-full w-full flex-col">
                     <img
                         src="images/websites/nufasa.png"
                         class="w-full object-cover"
@@ -394,7 +394,7 @@
             </div>
 
             <div
-                class="right-side-nufasa flex h-full w-1/2 flex-col items-center justify-center p-[4vw]"
+                class="right-side-nufasa flex h-[90vh] w-1/2 flex-col items-center justify-center p-[4vw]"
             >
                 <h1
                     class="font-instrument text-center text-[8vw] md:text-[3vw]"
@@ -417,7 +417,7 @@
             class="section-nass flex h-screen w-screen items-center justify-center p-[4vw]"
         >
             <div
-                class="left-side-nass flex h-full w-1/2 flex-col items-center justify-center p-[4vw]"
+                class="left-side-nass flex h-[90vh] w-1/2 flex-col items-center justify-center p-[4vw]"
             >
                 <h1
                     class="font-instrument text-center text-[8vw] md:text-[3vw]"
@@ -437,9 +437,9 @@
             </div>
 
             <div
-                class="right-side-nass flex h-[90vh] w-1/2 overflow-y-auto border border-stone-700"
+                class="right-side-nass flex h-[90vh] w-1/2 items-center justify-center overflow-y-auto"
             >
-                <div class="flex w-full flex-col">
+                <div class="flex h-full w-full flex-col">
                     <img
                         src="images/websites/nassconsult.png"
                         class="w-full object-cover"
@@ -453,12 +453,12 @@
         >
             <div class="w-full p-[30vw]">
                 <h1
-                    class="font-instrument text-[8vw] text-red-500 md:text-[3vw]"
+                    class="contact-title font-instrument text-[8vw] text-red-500 md:text-[3vw]"
                 >
                     CONTACT ME
                 </h1>
                 <p
-                    class="text-justify text-[4vw] font-thin md:text-[2vw]"
+                    class="contact-details text-justify text-[4vw] font-thin md:text-[2vw]"
                     style="text-align-last: justify"
                 >
                     Tel: 0720 018 492<br />
@@ -502,7 +502,7 @@
             ScrollTrigger.create({
                 trigger: ".section-landing",
                 start: "top top",
-                end: () => "+=" + window.innerHeight * 1,
+                end: () => "+=" + window.innerHeight * 2,
                 pin: true,
                 scrub: 0.5,
                 onUpdate: (self) => {
@@ -568,7 +568,7 @@
             });
 
             const blockText = document.querySelectorAll(
-                "section-block, .block-text span, .block-text",
+                ".section-block, .block-text span, .block-text",
             );
             gsap.set(blockText, { opacity: 0, y: 20 });
 
@@ -581,54 +581,6 @@
                     trigger: ".section-block",
                     start: "top 80%",
                     end: "bottom 20%",
-                    scrub: true,
-                },
-            });
-        </script>
-
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.from(".left-side-pamo", {
-                opacity: 0,
-                y: 150,
-                duration: 5,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".left-side-pamo",
-                    start: "top 80%",
-                    end: "top 30%",
-                    scrub: true,
-                },
-            });
-
-            gsap.from(".right-side-pamo", {
-                opacity: 0,
-                y: -150,
-                duration: 5,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".right-side-pamo",
-                    start: "top 80%",
-                    end: "top 30%",
-                    scrub: true,
-                },
-            });
-
-            const pamoText = document.querySelectorAll(
-                ".left-side-pamo, .right-side-pamo",
-            );
-            gsap.set(pamoText, { opacity: 0, y: 20 });
-
-            gsap.to(pamoText, {
-                opacity: 1,
-                y: 0,
-                stagger: 0.3,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".section-pamo",
-                    start: "top 80%",
-                    end: "top 30%",
                     scrub: true,
                 },
             });
@@ -676,6 +628,221 @@
                         (afyaindex - 1 + afyaimages.length) % afyaimages.length;
                     afyaimages[afyaindex].classList.remove("hidden");
                 });
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".section-pamo",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+            });
+
+            gsap.fromTo(
+                ".left-side-pamo",
+                { opacity: 0, y: 150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-pamo",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                ".right-side-pamo",
+                { opacity: 0, y: -150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-pamo",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".section-afya",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+            });
+
+            gsap.fromTo(
+                ".left-side-afya",
+                { opacity: 0, x: 150 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-afya",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                ".right-side-afya",
+                { opacity: 0, x: -150 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-afya",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".section-nufasa",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+            });
+
+            gsap.fromTo(
+                ".left-side-nufasa",
+                { opacity: 0, y: -150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-nufasa",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                ".right-side-nufasa",
+                { opacity: 0, y: 150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-nufasa",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".section-nass",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+            });
+
+            gsap.fromTo(
+                ".left-side-nass",
+                { opacity: 0, x: -150 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-nass",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                ".right-side-nass",
+                { opacity: 0, x: 150 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-nass",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                trigger: ".section-contact",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+            });
+
+            gsap.fromTo(
+                ".contact-title",
+                { opacity: 0, y: -150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-contact",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                ".contact-details",
+                { opacity: 0, y: 150 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: ".section-contact",
+                        start: "top top",
+                        end: "+=100%",
+                        scrub: true,
+                    },
+                },
+            );
         </script>
     </body>
 </html>
