@@ -201,11 +201,12 @@
                     <span class="build-target">building things</span> that
                     people enjoy using. I like
                     <span class="clean-target">clean code</span>, but I also
-                    <span class="messy-target">messy sketches</span>. I like
-                    <span class="break-target">breaking things</span>,
+                    like <span class="messy-target">messy sketches</span>. I
+                    like <span class="break-target">breaking things</span>,
                     <span class="fix-target">fixing them</span>, and
                     <span class="learn-target"> learning more</span> in the
-                    process.
+                    process. Most of all, I look forward to
+                    <span class="collab-target">collaborating!</span>
                 </p>
             </div>
         </section>
@@ -552,7 +553,7 @@
             gsap.registerPlugin(ScrollTrigger);
 
             const targets = document.querySelectorAll(
-                ".front-target, .ui-target, .art-target, .build-target, .clean-target, .messy-target, .break-target, .fix-target, .learn-target",
+                ".front-target, .ui-target, .art-target, .build-target, .clean-target, .messy-target, .break-target, .fix-target, .learn-target, .collab-target",
             );
 
             gsap.set(targets, { backgroundColor: "transparent" });
@@ -564,7 +565,7 @@
                 scrollTrigger: {
                     trigger: ".section-block",
                     start: "top top",
-                    end: () => "+=" + window.innerHeight * 2,
+                    end: () => "+=" + window.innerHeight * 1.5,
                     pin: true,
                     scrub: true,
                 },
