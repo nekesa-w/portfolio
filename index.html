@@ -523,7 +523,7 @@
             ScrollTrigger.create({
                 trigger: ".section-landing",
                 start: "top top",
-                end: () => "+=" + window.innerHeight * 1,
+                end: () => "+=" + window.innerHeight * 2,
                 pin: true,
                 scrub: 0.5,
                 onUpdate: (self) => {
@@ -532,7 +532,7 @@
                         let index = parseInt(letter.dataset.index);
 
                         if (self.progress > 0.05) {
-                            if (self.progress % 0.2 < 0.02) {
+                            if (self.progress % 0.1 < 0.02) {
                                 if (self.direction > 0) {
                                     index++;
                                     if (index > maxIndex) index = 1;
@@ -560,7 +560,7 @@
 
             gsap.to(targets, {
                 backgroundColor: "#FCD34D",
-                stagger: 0.1,
+                stagger: 0.5,
                 ease: "none",
                 scrollTrigger: {
                     trigger: ".section-block",
