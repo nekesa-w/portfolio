@@ -449,6 +449,26 @@
         </section>
 
         <section
+            class="section-services flex h-screen w-screen items-center justify-center p-[4vw]"
+        >
+            <div class="w-full text-center">
+                <h1
+                    class="services-title font-instrument text-[8vw] text-red-500 md:text-[3vw]"
+                >
+                    WHAT I OFFER
+                </h1>
+                <p class="services-details text-[4vw] font-thin md:text-[2vw]">
+                    <span class="website-target">Website Design</span><br />
+                    <span class="mobile-target">Mobile-Friendly Layouts</span
+                    ><br />
+                    <span class="visual-target">Visual Mockups</span><br />
+                    <span class="ux-target">User Experience</span><br />
+                    <span class="graphic-target">Custom Graphics</span><br />
+                </p>
+            </div>
+        </section>
+
+        <section
             class="section-contact flex h-screen w-screen items-center justify-center p-[4vw]"
         >
             <div class="w-full p-[30vw]">
@@ -502,7 +522,7 @@
             ScrollTrigger.create({
                 trigger: ".section-landing",
                 start: "top top",
-                end: () => "+=" + window.innerHeight * 2,
+                end: () => "+=" + window.innerHeight * 1,
                 pin: true,
                 scrub: 0.5,
                 onUpdate: (self) => {
@@ -511,7 +531,7 @@
                         let index = parseInt(letter.dataset.index);
 
                         if (self.progress > 0.05) {
-                            if (self.progress % 0.1 < 0.02) {
+                            if (self.progress % 0.2 < 0.02) {
                                 if (self.direction > 0) {
                                     index++;
                                     if (index > maxIndex) index = 1;
@@ -800,6 +820,43 @@
                     },
                 },
             );
+        </script>
+
+        <style>
+            .website-target,
+            .mobile-target,
+            .visual-target,
+            .ux-target,
+            .graphic-target {
+                display: inline-block;
+                will-change: transform, opacity;
+            }
+        </style>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const servicetargets = gsap.utils.toArray(
+                ".website-target, .mobile-target, .visual-target, .ux-target, .graphic-target",
+            );
+
+            servicetargets.forEach((el) => {
+                gsap.fromTo(
+                    el,
+                    { autoAlpha: 0, y: 100 },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play reverse play reverse",
+                        },
+                    },
+                );
+            });
         </script>
 
         <script>
