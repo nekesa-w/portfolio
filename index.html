@@ -26,7 +26,7 @@
                 scrollbar-color: #000 transparent;
             }
             *::-webkit-scrollbar {
-                width: 8px;
+                width: 10px;
             }
             *::-webkit-scrollbar-track {
                 background: transparent;
@@ -35,119 +35,124 @@
                 background-color: #000;
                 border-radius: 10px;
             }
-            .wrapper {
-                width: 100%;
-                max-width: 960px;
-                margin: 0 auto;
-                position: relative;
-                padding: 30px;
-            }
-            .slider {
-                display: flex;
-                transition: all 0.3s;
-            }
-            .slider-container {
-                overflow: hidden;
-                width: 400px;
-                margin: 0 auto;
-            }
-            .slider > div {
-                flex-shrink: 0;
-                width: 400px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-            }
-            .img-box {
-                width: 400px;
-                height: 400px;
-                overflow: hidden;
-            }
-            .img-box img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 0.5rem;
-            }
-            .button {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                cursor: pointer;
-                z-index: 50;
-                font-size: 2rem;
-                font-weight: bold;
-                padding: 0.5rem 1rem;
-                user-select: none;
-            }
-            #button-left {
-                left: 0;
-            }
-            #button-right {
-                right: 0;
-            }
         </style>
     </head>
 
     <body
-        class="font-inter flex h-screen w-screen flex-col overflow-hidden bg-white text-black"
+        class="font-inter flex h-screen w-screen flex-col overflow-x-hidden bg-white text-black"
     >
         <header
-            class="z-50 mx-4 mt-4 flex items-center justify-between rounded-2xl bg-black px-16 py-4 font-light text-white"
+            class="z-50 mx-2 mt-2 flex items-center justify-between rounded-2xl bg-black px-6 py-3 font-light text-white md:mx-4 md:mt-4 md:px-16 md:py-4"
         >
-            <a href="#home"
-                ><img src="logos/logo-light.png" alt="Logo" class="h-10"
-            /></a>
-            <nav class="space-x-8 text-xl uppercase">
+            <a href="#home">
+                <img
+                    src="logos/logo-light.png"
+                    alt="Logo"
+                    class="h-8 md:h-10"
+                />
+            </a>
+
+            <nav class="hidden gap-8 text-xl font-light uppercase md:flex">
                 <a href="#home" class="hover:text-gray-300">Home</a>
                 <a href="#about" class="hover:text-gray-300">About</a>
                 <a href="#projects" class="hover:text-gray-300">Projects</a>
                 <a href="#contact" class="hover:text-gray-300">Contact</a>
             </nav>
+
+            <button
+                id="menu-btn"
+                class="block text-3xl font-bold focus:outline-none md:hidden"
+            >
+                ☰
+            </button>
+
+            <div
+                id="mobile-menu"
+                class="fixed inset-0 flex hidden flex-col items-center justify-center space-y-10 bg-black text-3xl font-black uppercase text-white transition-all duration-300"
+            >
+                <button
+                    id="close-menu"
+                    class="absolute right-8 top-6 text-4xl font-bold focus:outline-none"
+                >
+                    ✕
+                </button>
+
+                <nav class="flex flex-col items-center space-y-8">
+                    <a
+                        href="#home"
+                        class="hover:text-gray-400"
+                        onclick="closeMenu()"
+                        >Home</a
+                    >
+                    <a
+                        href="#about"
+                        class="hover:text-gray-400"
+                        onclick="closeMenu()"
+                        >About</a
+                    >
+                    <a
+                        href="#projects"
+                        class="hover:text-gray-400"
+                        onclick="closeMenu()"
+                        >Projects</a
+                    >
+                    <a
+                        href="#contact"
+                        class="hover:text-gray-400"
+                        onclick="closeMenu()"
+                        >Contact</a
+                    >
+                </nav>
+            </div>
         </header>
 
-        <main class="mt-4 flex-1 overflow-y-auto overflow-x-hidden pl-4 pr-2">
+        <main class="grid grid-cols-1 gap-40 px-2 pb-20 pt-4 md:px-4">
             <section
                 id="home"
-                class="flex h-[80vh] flex-col rounded-2xl border-8 border-black text-center"
+                class="relative flex min-h-[80vh] w-full flex-col items-center justify-center rounded-2xl bg-cover bg-center px-8 text-white md:px-20"
+                style="background-image: url(&quot;images/hero.png&quot;)"
             >
-                <div
-                    class="mx-40 mb-8 flex flex-1 flex-col justify-end space-y-2 text-right text-7xl font-black uppercase"
+                <h1
+                    class="z-10 text-center text-5xl font-black uppercase md:text-8xl"
                 >
-                    <div class="leading-none">
-                        <p>Front-End Developer</p>
-                        <p>WordPress Builder</p>
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-left">+</span>
-                            <span>UI/UX Designer</span>
-                        </div>
-                    </div>
-                    <hr class="border-8 border-black" />
-                    <h1>Nicole Wasike</h1>
-                </div>
+                    Front-End<br />Developer<br />& UI/UX Designer
+                </h1>
             </section>
 
-            <section id="about" class="mx-40 mt-40">
-                <div class="mb-8 grid grid-cols-2 items-start gap-x-4">
-                    <p class="text-7xl font-black uppercase">About</p>
-                    <div class="flex items-center justify-end">
+            <section
+                id="about"
+                class="flex flex-col items-center justify-center px-8 md:px-20"
+            >
+                <div
+                    class="mb-8 grid w-full grid-cols-1 items-center text-4xl md:grid-cols-2"
+                >
+                    <p
+                        class="flex justify-center text-4xl font-black uppercase md:justify-start md:text-left md:text-7xl"
+                    >
+                        About
+                    </p>
+                    <div
+                        class="flex justify-center md:items-center md:justify-end"
+                    >
                         <button
-                            class="rounded-2xl bg-black px-6 py-4 text-2xl font-bold uppercase text-white"
+                            class="rounded-2xl bg-black px-6 py-3 text-2xl font-bold uppercase text-white"
                             onclick="window.open('pdfs/Nicole Wasike - CV (Freelance).pdf', '_blank')"
                         >
                             View CV
                         </button>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-x-4">
-                    <div class="space-y-4 text-left text-xl font-light">
+
+                <div
+                    class="flex flex-col gap-8 text-lg font-light md:grid md:grid-cols-2 md:text-xl"
+                >
+                    <div class="text-left md:text-left">
                         <p>
-                            Front-end developer and UI/UX designer building
-                            engaging websites on WordPress and from the ground
-                            up.
+                            I am Nicole Wasike. Front-end developer and UI/UX
+                            designer building responsive websites on WordPress
+                            and from the ground up.
                         </p>
-                        <h3 class="font-black uppercase">Experience</h3>
+                        <h3 class="mt-6 font-black uppercase">Experience</h3>
                         <ul class="list-inside">
                             <li>Freelancer (2025 – Present)</li>
                             <li>
@@ -158,16 +163,16 @@
                                 Front-End Developer Intern – Envisage (2024)
                             </li>
                         </ul>
-                        <h3 class="font-black uppercase">Languages</h3>
+                        <h3 class="mt-6 font-black uppercase">Languages</h3>
                         <p>English - Fluent<br />Kiswahili - Intermediate</p>
                     </div>
-                    <div class="space-y-4 text-right text-xl font-light">
+                    <div class="text-left md:text-right">
                         <h3 class="font-black uppercase">Education</h3>
                         <p>
-                            2021 - 2025<br />Strathmore University<br />Bachelor
-                            of Science<br />Informatics and Computer Science
+                            2021 - 2025<br />Strathmore University<br />BSc
+                            Informatics and Computer Science
                         </p>
-                        <h3 class="font-black uppercase">Skills</h3>
+                        <h3 class="mt-6 font-black uppercase">Skills</h3>
                         <ul class="list-inside">
                             <li>React.js & Next.js</li>
                             <li>HTML, CSS & JavaScript</li>
@@ -180,119 +185,218 @@
 
             <section
                 id="projects"
-                class="mt-40 flex flex-col items-center justify-center"
+                class="flex flex-col items-center justify-center px-4 md:px-20"
             >
-                <h2 class="mb-8 text-center text-7xl font-black uppercase">
+                <h2
+                    class="mb-8 text-center text-4xl font-black uppercase md:text-7xl"
+                >
                     Projects
                 </h2>
-                <div class="wrapper text-center">
-                    <div id="button-left" class="button">‹</div>
-                    <div class="slider-container">
-                        <div id="slider" class="slider">
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/afya.png" alt="Afya" />
+
+                <div class="relative mx-auto flex max-w-full justify-center">
+                    <div
+                        id="button-left"
+                        class="absolute left-0 top-1/2 z-50 -translate-y-1/2 cursor-pointer select-none text-4xl font-bold"
+                    >
+                        ‹
+                    </div>
+
+                    <div class="w-[80%] overflow-hidden rounded-2xl">
+                        <div
+                            id="slider"
+                            class="flex transition-all duration-300"
+                        >
+                            <div
+                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
+                            >
+                                <div
+                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                >
+                                    <img
+                                        src="images/afya.png"
+                                        alt="Afya"
+                                        class="h-full w-full object-cover"
+                                    />
                                 </div>
-                                <h3 class="mt-4 text-xl font-bold">
-                                    AfyaZone: Gym App
+                                <h3
+                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
+                                >
+                                    AfyaZone: Gym App Mockup
                                 </h3>
                                 <a
                                     href="pdfs/afya.pdf"
                                     target="_blank"
-                                    class="mt-2 rounded bg-black px-4 py-2 text-sm font-bold uppercase text-white"
+                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
+                                    >View Project</a
                                 >
-                                    View Project
-                                </a>
                             </div>
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/pamo.png" alt="Pamo" />
+                            <div
+                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
+                            >
+                                <div
+                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                >
+                                    <img
+                                        src="images/pamo.png"
+                                        alt="Pamo"
+                                        class="h-full w-full object-cover"
+                                    />
                                 </div>
-                                <h3 class="mt-4 text-xl font-bold">
-                                    Pamo: Food Donation Website
+                                <h3
+                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
+                                >
+                                    Pamo: Food Donation Website Mockup
                                 </h3>
                                 <a
                                     href="pdfs/pamo.pdf"
                                     target="_blank"
-                                    class="mt-2 rounded bg-black px-4 py-2 text-sm font-bold uppercase text-white"
+                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
                                     >View Project</a
                                 >
                             </div>
-                            <div>
-                                <div class="img-box">
+                            <div
+                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
+                            >
+                                <div
+                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                >
                                     <img
                                         src="images/nassconsult.png"
                                         alt="Nass"
+                                        class="h-full w-full object-cover"
                                     />
                                 </div>
-                                <h3 class="mt-4 text-xl font-bold">
-                                    NassConssult: Real Estate Website
+                                <h3
+                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
+                                >
+                                    NassConssult: Real Estate Website Mockup
                                 </h3>
                                 <a
                                     href="pdfs/nassconsult.pdf"
                                     target="_blank"
-                                    class="mt-2 rounded bg-black px-4 py-2 text-sm font-bold uppercase text-white"
+                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
                                     >View Project</a
                                 >
                             </div>
-                            <div>
-                                <div class="img-box">
-                                    <img src="images/nufasa.png" alt="Nufasa" />
+                            <div
+                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
+                            >
+                                <div
+                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                >
+                                    <img
+                                        src="images/nufasa.png"
+                                        alt="Nufasa"
+                                        class="h-full w-full object-cover"
+                                    />
                                 </div>
-                                <h3 class="mt-4 text-xl font-bold">
-                                    Nufasa: Tour Website
+                                <h3
+                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
+                                >
+                                    Nufasa: Tour Website Mockup
                                 </h3>
                                 <a
                                     href="pdfs/nufasa.pdf"
                                     target="_blank"
-                                    class="mt-2 rounded bg-black px-4 py-2 text-sm font-bold uppercase text-white"
+                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
                                     >View Project</a
                                 >
                             </div>
                         </div>
                     </div>
-                    <div id="button-right" class="button">›</div>
+
+                    <div
+                        id="button-right"
+                        class="absolute right-0 top-1/2 z-50 -translate-y-1/2 cursor-pointer select-none text-4xl font-bold"
+                    >
+                        ›
+                    </div>
                 </div>
             </section>
 
-            <section id="contact" class="mx-40 mt-40 flex h-screen gap-16">
-                <div class="flex w-1/2 justify-end">
-                    <h2 class="text-right text-6xl font-black uppercase">
-                        Let's <br />Work <br />Together
-                    </h2>
-                </div>
-                <div class="flex w-1/2 flex-col space-y-4">
-                    <h1 class="mb-4 text-7xl font-black uppercase">Contact</h1>
-                    <h2 class="mb-4 text-2xl font-black uppercase">
-                        Get in touch
-                    </h2>
-                    <div class="flex items-center space-x-4 font-light">
-                        <img
-                            src="logos/phone-icon.png"
-                            alt="Phone"
-                            class="h-6 w-6 md:h-8 md:w-8"
-                        />
-                        <span>+254 720 018 492</span>
+            <section
+                id="contact"
+                class="flex flex-col items-center justify-center px-4 md:px-20"
+            >
+                <div
+                    class="flex max-w-6xl flex-col gap-8 p-4 text-center lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:text-left"
+                >
+                    <div
+                        class="flex w-full justify-center lg:w-1/2 lg:justify-end"
+                    >
+                        <h2
+                            class="text-4xl font-black uppercase md:text-7xl lg:text-right"
+                        >
+                            Let's <br />Work <br />Together
+                        </h2>
                     </div>
-                    <div class="flex items-center space-x-4 font-light">
-                        <img
-                            src="logos/email-icon.png"
-                            alt="Email"
-                            class="h-6 w-6 md:h-8 md:w-8"
-                        />
-                        <span>njnwasike@gmail.com</span>
-                    </div>
-                    <div class="flex items-center space-x-4 font-light">
-                        <img
-                            src="logos/location-icon.png"
-                            alt="Location"
-                            class="h-6 w-6 md:h-8 md:w-8"
-                        />
-                        <span>Nairobi, Kenya</span>
+                    <div
+                        class="flex w-full flex-col items-center space-y-4 text-lg md:text-xl lg:w-1/2 lg:items-start"
+                    >
+                        <h1 class="text-4xl font-black uppercase md:text-7xl">
+                            Contact
+                        </h1>
+                        <div class="flex items-center space-x-4 font-light">
+                            <img
+                                src="logos/phone-icon.png"
+                                alt="Phone"
+                                class="h-6 w-6 md:h-8 md:w-8"
+                            />
+                            <span>+254 720 018 492</span>
+                        </div>
+                        <div class="flex items-center space-x-4 font-light">
+                            <img
+                                src="logos/email-icon.png"
+                                alt="Email"
+                                class="h-6 w-6 md:h-8 md:w-8"
+                            />
+                            <span>njnwasike@gmail.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4 font-light">
+                            <img
+                                src="logos/location-icon.png"
+                                alt="Location"
+                                class="h-6 w-6 md:h-8 md:w-8"
+                            />
+                            <span>Nairobi, Kenya</span>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
+
+        <script>
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const closeMenuBtn = document.getElementById("close-menu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.remove("hidden");
+            });
+
+            closeMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+
+            function closeMenu() {
+                mobileMenu.classList.add("hidden");
+            }
+        </script>
+
+        <script>
+            const roles = [
+                "Front-End Developer.",
+                "WordPress Builder.",
+                "UI/UX Designer.",
+            ];
+            let i = 0;
+            const roleSpan = document.getElementById("roles");
+
+            setInterval(() => {
+                i = (i + 1) % roles.length;
+                roleSpan.textContent = roles[i];
+            }, 1500);
+        </script>
 
         <script>
             const slider = document.getElementById("slider");
