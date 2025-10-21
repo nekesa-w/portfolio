@@ -4,12 +4,23 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Portfolio - Nicole Wasike</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
             rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -20,6 +31,7 @@
                 },
             };
         </script>
+
         <style>
             * {
                 margin: 0;
@@ -32,7 +44,7 @@
         class="font-inter flex flex-col overflow-x-hidden bg-neutral-950 font-thin text-neutral-300"
     >
         <header
-            class="fixed left-0 right-0 top-0 z-50 flex min-h-[10vh] w-full items-center justify-between bg-neutral-950 px-4 py-2 md:px-20 md:py-4"
+            class="fixed left-0 right-0 top-0 z-50 flex min-h-[10vh] w-full items-center justify-between border-[1px] border-neutral-800/70 bg-neutral-950 px-4 py-2 shadow-[0_0_10px_rgba(100,100,100,0.1)] md:px-20 md:py-4"
         >
             <a href="#home">
                 <img
@@ -106,7 +118,7 @@
         <main class="grid grid-cols-1 gap-20 pt-4">
             <section
                 id="home"
-                class="flex min-h-[80vh] w-full flex-col items-center justify-center px-4 pt-[5vh] md:px-20 md:pt-[15vh] xl:flex-row"
+                class="flex min-h-[80vh] w-full flex-col items-center justify-center px-4 pt-[5vh] md:px-20 md:pt-[10vh] lg:min-h-screen xl:flex-row"
             >
                 <div
                     class="relative mb-4 flex h-[60vh] w-full justify-center lg:justify-end xl:mb-2 xl:w-1/2"
@@ -153,7 +165,7 @@
                     <div class="mt-6 flex justify-center">
                         <button
                             onclick="location.href='#about'"
-                            class="rounded-full bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_5px_rgba(255,255,255,0.2)] transition hover:bg-neutral-700 sm:text-base"
+                            class="rounded-full bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 sm:text-base"
                         >
                             ↓
                         </button>
@@ -163,7 +175,7 @@
 
             <section
                 id="about"
-                class="flex min-h-screen flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
+                class="flex flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
             >
                 <h2
                     class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
@@ -175,7 +187,7 @@
                     class="grid auto-rows-auto grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <p class="text-sm md:text-base">
                             I’m Nicole Wasike — a front-end developer and UI/UX
@@ -192,7 +204,7 @@
                     </div>
 
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <h3 class="mb-4 font-black uppercase">Experience</h3>
                         <ul class="space-y-2 text-sm md:text-base">
@@ -213,7 +225,7 @@
                     </div>
 
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <h3 class="font-black uppercase">Education</h3>
                         <p class="mt-2 text-sm md:text-base">
@@ -223,7 +235,7 @@
                     </div>
 
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <h3 class="font-black uppercase">Skills</h3>
                         <ul class="mt-2 list-inside text-sm md:text-base">
@@ -236,7 +248,7 @@
                     </div>
 
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <h3 class="font-black uppercase">Languages</h3>
                         <p class="mt-2 text-sm md:text-base">
@@ -245,14 +257,14 @@
                     </div>
 
                     <div
-                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <h3 class="font-black uppercase">Curriculum Vitae</h3>
                         <p class="mt-2 text-sm md:text-base">
                             See my complete professional journey
                         </p>
                         <button
-                            class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_5px_rgba(255,255,255,0.2)] transition hover:bg-neutral-700 md:text-base"
+                            class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                             onclick="window.open('pdfs/Nicole Wasike - CV.pdf', '_blank')"
                         >
                             View CV
@@ -263,7 +275,7 @@
 
             <section
                 id="projects"
-                class="flex min-h-screen flex-col items-center justify-center px-4 md:px-20"
+                class="flex flex-col items-center justify-center pt-[15vh]"
             >
                 <h2
                     class="mb-8 text-center text-4xl font-black uppercase md:text-7xl"
@@ -271,154 +283,150 @@
                     Projects
                 </h2>
 
-                <div class="relative mx-auto flex max-w-full justify-center">
-                    <div
-                        id="button-left"
-                        class="absolute left-0 top-1/2 z-50 -translate-y-1/2 cursor-pointer select-none text-4xl font-bold"
-                    >
-                        ‹
-                    </div>
-
-                    <div class="w-[80%] overflow-hidden rounded-2xl">
-                        <div
-                            id="slider"
-                            class="flex transition-all duration-300"
-                        >
-                            <div
-                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
-                            >
+                <div class="glide px-20">
+                    <div data-glide-el="track" class="glide__track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
                                 <div
-                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                                 >
                                     <img
                                         src="images/neuraledge.png"
-                                        alt="Afya"
-                                        class="h-full w-full object-cover"
+                                        alt="NeuralEdge"
+                                        class="h-48 w-full rounded-lg object-cover"
                                     />
+                                    <h3
+                                        class="mt-4 text-center text-base uppercase"
+                                    >
+                                        NeuralEdge: AI SaaS Web App
+                                    </h3>
+                                    <button
+                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                                        onclick="window.open('pdfs/neuraledge.pdf', '_blank')"
+                                    >
+                                        View Project
+                                    </button>
                                 </div>
-                                <h3
-                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
-                                >
-                                    NeuralEdge: AI SaaS Web App
-                                </h3>
-                                <a
-                                    href="pdfs/neuraledge.pdf"
-                                    target="_blank"
-                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
-                                    >View Project</a
-                                >
-                            </div>
-                            <div
-                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
-                            >
+                            </li>
+
+                            <li class="glide__slide">
                                 <div
-                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                                 >
                                     <img
                                         src="images/afya.png"
-                                        alt="Afya"
-                                        class="h-full w-full object-cover"
+                                        alt="AfyaZone"
+                                        class="h-48 w-full rounded-lg object-cover"
                                     />
+                                    <h3
+                                        class="mt-4 text-center text-base uppercase"
+                                    >
+                                        AfyaZone: Fitness Mobile App
+                                    </h3>
+                                    <button
+                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                                        onclick="window.open('pdfs/afya.pdf', '_blank')"
+                                    >
+                                        View Project
+                                    </button>
                                 </div>
-                                <h3
-                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
-                                >
-                                    AfyaZone: Fitness Mobile App
-                                </h3>
-                                <a
-                                    href="pdfs/afya.pdf"
-                                    target="_blank"
-                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
-                                    >View Project</a
-                                >
-                            </div>
-                            <div
-                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
-                            >
+                            </li>
+
+                            <li class="glide__slide">
                                 <div
-                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                                 >
                                     <img
                                         src="images/pamo.png"
                                         alt="Pamo"
-                                        class="h-full w-full object-cover"
+                                        class="h-48 w-full rounded-lg object-cover"
                                     />
+                                    <h3
+                                        class="mt-4 text-center text-base uppercase"
+                                    >
+                                        Pamo: Food Donation Website
+                                    </h3>
+                                    <button
+                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                                        onclick="window.open('pdfs/pamo.pdf', '_blank')"
+                                    >
+                                        View Project
+                                    </button>
                                 </div>
-                                <h3
-                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
-                                >
-                                    Pamo: Food Donation Website
-                                </h3>
-                                <a
-                                    href="pdfs/pamo.pdf"
-                                    target="_blank"
-                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
-                                    >View Project</a
-                                >
-                            </div>
-                            <div
-                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
-                            >
+                            </li>
+
+                            <li class="glide__slide">
                                 <div
-                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                                 >
                                     <img
                                         src="images/nassconsult.png"
-                                        alt="Nass"
-                                        class="h-full w-full object-cover"
+                                        alt="NassConsult"
+                                        class="h-48 w-full rounded-lg object-cover"
                                     />
+                                    <h3
+                                        class="mt-4 text-center text-base uppercase"
+                                    >
+                                        NassConsult: Real Estate Website
+                                    </h3>
+                                    <button
+                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                                        onclick="window.open('pdfs/nassconsult.pdf', '_blank')"
+                                    >
+                                        View Project
+                                    </button>
                                 </div>
-                                <h3
-                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
-                                >
-                                    NassConssult: Real Estate Website
-                                </h3>
-                                <a
-                                    href="pdfs/nassconsult.pdf"
-                                    target="_blank"
-                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
-                                    >View Project</a
-                                >
-                            </div>
-                            <div
-                                class="flex w-full flex-shrink-0 flex-col items-center justify-start"
-                            >
+                            </li>
+
+                            <li class="glide__slide">
                                 <div
-                                    class="h-[50vh] max-h-[400px] w-full overflow-hidden rounded-lg"
+                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                                 >
                                     <img
                                         src="images/nufasa.png"
                                         alt="Nufasa"
-                                        class="h-full w-full object-cover"
+                                        class="h-48 w-full rounded-lg object-cover"
                                     />
+                                    <h3
+                                        class="mt-4 text-center text-base uppercase"
+                                    >
+                                        Nufasa: Tours and Travels Website
+                                    </h3>
+                                    <button
+                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                                        onclick="window.open('pdfs/nufasa.pdf', '_blank')"
+                                    >
+                                        View Project
+                                    </button>
                                 </div>
-                                <h3
-                                    class="mt-4 text-center text-lg font-bold uppercase md:text-left md:text-xl"
-                                >
-                                    Nufasa: Tours and Travels Website
-                                </h3>
-                                <a
-                                    href="pdfs/nufasa.pdf"
-                                    target="_blank"
-                                    class="mt-2 rounded-2xl bg-black px-6 py-3 text-center text-2xl font-bold uppercase text-white"
-                                    >View Project</a
-                                >
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <div
-                        id="button-right"
-                        class="absolute right-0 top-1/2 z-50 -translate-y-1/2 cursor-pointer select-none text-4xl font-bold"
+                        class="glide__arrows mt-8 flex justify-center gap-4"
+                        data-glide-el="controls"
                     >
-                        ›
+                        <button
+                            class="glide__arrow glide__arrow--left rounded-2xl border-0 bg-neutral-400/10 text-sm shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                            data-glide-dir="<"
+                        >
+                            ←
+                        </button>
+
+                        <button
+                            class="glide__arrow glide__arrow--right rounded-2xl border-0 bg-neutral-400/10 text-sm shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
+                            data-glide-dir=">"
+                        >
+                            →
+                        </button>
                     </div>
                 </div>
             </section>
 
             <section
                 id="services"
-                class="flex flex-col items-center justify-center px-4 md:px-20"
+                class="flex flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
             >
                 <h2
                     class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
@@ -428,10 +436,10 @@
 
                 <div class="space-y-2 text-center text-2xl md:text-4xl">
                     <div>UI/UX Design</div>
+                    <div>UI Prototyping</div>
                     <div>Front-End Development</div>
                     <div>WordPress Development</div>
                     <div>Responsive Design</div>
-                    <div>UI Prototyping</div>
                 </div>
             </section>
 
@@ -487,6 +495,61 @@
         </main>
 
         <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from("#home", {
+                opacity: 0,
+                y: -100,
+                duration: 2,
+                ease: "power3.out",
+            });
+
+            gsap.from("#about", {
+                scrollTrigger: {
+                    trigger: "#about",
+                    start: "top 80%",
+                },
+                opacity: 0,
+                scale: 0.9,
+                duration: 2,
+                ease: "power2.out",
+            });
+
+            gsap.from("#projects", {
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top 80%",
+                },
+                opacity: 0,
+                scale: 1.2,
+                duration: 2,
+                ease: "power2.out",
+            });
+
+            gsap.from("#services", {
+                scrollTrigger: {
+                    trigger: "#services",
+                    start: "top 80%",
+                },
+                opacity: 0,
+                x: 40,
+                duration: 2,
+                ease: "power2.out",
+            });
+
+            gsap.from("#contact", {
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                },
+                opacity: 0,
+                x: -40,
+                duration: 2,
+                ease: "power2.out",
+            });
+        </script>
+
+        <script>
             function sendToBack(el) {
                 el.parentNode.prepend(el);
                 setTimeout(() => {
@@ -514,54 +577,18 @@
         </script>
 
         <script>
-            const slider = document.getElementById("slider");
-            const btnLeft = document.getElementById("button-left");
-            const btnRight = document.getElementById("button-right");
-
-            const slides = Array.from(slider.children);
-            const totalItems = slides.length;
-            let currentIndex = 1;
-
-            slider.insertBefore(
-                slides[totalItems - 1].cloneNode(true),
-                slider.firstChild,
-            );
-            slider.appendChild(slides[0].cloneNode(true));
-
-            let itemWidth = slider.children[0].offsetWidth;
-
-            function updateSlider(transition = true) {
-                slider.style.transition = transition
-                    ? "transform 0.3s"
-                    : "none";
-                slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-            }
-
-            updateSlider(false);
-
-            function move(direction) {
-                currentIndex += direction;
-                updateSlider(true);
-            }
-
-            btnRight.addEventListener("click", () => move(1));
-            btnLeft.addEventListener("click", () => move(-1));
-
-            slider.addEventListener("transitionend", () => {
-                if (currentIndex === totalItems + 1) {
-                    currentIndex = 1;
-                    updateSlider(false);
-                }
-                if (currentIndex === 0) {
-                    currentIndex = totalItems;
-                    updateSlider(false);
-                }
-            });
-
-            window.addEventListener("resize", () => {
-                itemWidth = slider.children[0].offsetWidth;
-                updateSlider(false);
-            });
+            new Glide(".glide", {
+                type: "carousel",
+                perView: 3,
+                gap: 20,
+                focusAt: "center",
+                autoplay: 4000,
+                animationDuration: 500,
+                breakpoints: {
+                    1024: { perView: 2 },
+                    768: { perView: 1 },
+                },
+            }).mount();
         </script>
     </body>
 </html>
