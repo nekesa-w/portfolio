@@ -22,27 +22,17 @@
         </script>
         <style>
             * {
-                scrollbar-width: thin;
-                scrollbar-color: #000 transparent;
-            }
-            *::-webkit-scrollbar {
-                width: 10px;
-            }
-            *::-webkit-scrollbar-track {
-                background: transparent;
-            }
-            *::-webkit-scrollbar-thumb {
-                background-color: #000;
-                border-radius: 10px;
+                margin: 0;
+                padding: 0;
             }
         </style>
     </head>
 
     <body
-        class="font-inter flex h-screen w-screen flex-col overflow-x-hidden bg-white text-black"
+        class="font-inter flex flex-col overflow-x-hidden bg-neutral-950 font-thin text-neutral-300"
     >
         <header
-            class="z-50 mx-2 mt-2 flex items-center justify-between rounded-2xl bg-black px-6 py-3 font-light text-white md:mx-4 md:mt-4 md:px-16 md:py-4"
+            class="fixed left-0 right-0 top-0 z-50 flex min-h-[10vh] w-full items-center justify-between bg-neutral-950 px-4 py-2 md:px-20 md:py-4"
         >
             <a href="#home">
                 <img
@@ -52,23 +42,24 @@
                 />
             </a>
 
-            <nav class="hidden gap-8 text-xl font-light uppercase md:flex">
-                <a href="#home" class="hover:text-gray-300">Home</a>
-                <a href="#about" class="hover:text-gray-300">About</a>
-                <a href="#projects" class="hover:text-gray-300">Projects</a>
-                <a href="#contact" class="hover:text-gray-300">Contact</a>
+            <nav class="hidden gap-8 text-xl font-light uppercase lg:flex">
+                <a href="#home" class="hover:text-white">Home</a>
+                <a href="#about" class="hover:text-white">About</a>
+                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="#services" class="hover:text-white">Services</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
             </nav>
 
             <button
                 id="menu-btn"
-                class="block text-3xl font-bold focus:outline-none md:hidden"
+                class="block text-3xl font-bold focus:outline-none lg:hidden"
             >
                 ☰
             </button>
 
             <div
                 id="mobile-menu"
-                class="fixed inset-0 flex hidden flex-col items-center justify-center space-y-10 bg-black text-3xl font-black uppercase text-white transition-all duration-300"
+                class="fixed inset-0 flex hidden flex-col items-center justify-center space-y-10 bg-neutral-950 text-3xl font-black uppercase transition-all duration-300"
             >
                 <button
                     id="close-menu"
@@ -80,25 +71,31 @@
                 <nav class="flex flex-col items-center space-y-8">
                     <a
                         href="#home"
-                        class="hover:text-gray-400"
+                        class="hover:text-white"
                         onclick="closeMenu()"
                         >Home</a
                     >
                     <a
                         href="#about"
-                        class="hover:text-gray-400"
+                        class="hover:text-white"
                         onclick="closeMenu()"
                         >About</a
                     >
                     <a
                         href="#projects"
-                        class="hover:text-gray-400"
+                        class="hover:text-white"
                         onclick="closeMenu()"
                         >Projects</a
                     >
                     <a
+                        href="#services"
+                        class="hover:text-white"
+                        onclick="closeMenu()"
+                        >Services</a
+                    >
+                    <a
                         href="#contact"
-                        class="hover:text-gray-400"
+                        class="hover:text-white"
                         onclick="closeMenu()"
                         >Contact</a
                     >
@@ -106,86 +103,167 @@
             </div>
         </header>
 
-        <main class="grid grid-cols-1 gap-40 px-2 pb-20 pt-4 md:px-4">
+        <main class="grid grid-cols-1 gap-20 pt-4">
             <section
                 id="home"
-                class="relative flex min-h-[80vh] w-full flex-col items-center justify-center rounded-2xl bg-cover bg-center px-8 text-white md:px-20"
-                style="background-image: url(&quot;images/hero.png&quot;)"
+                class="flex min-h-[80vh] w-full flex-col items-center justify-center px-4 pt-[5vh] md:px-20 md:pt-[15vh] xl:flex-row"
             >
-                <h1
-                    class="z-10 text-center text-5xl font-black uppercase md:text-8xl"
+                <div
+                    class="relative mb-4 flex h-[60vh] w-full justify-center lg:justify-end xl:mb-2 xl:w-1/2"
                 >
-                    Front-End<br />Developer<br />& UI/UX Designer
-                </h1>
+                    <img
+                        src="images/hero-pamo.png"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 -rotate-6 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
+                        onclick="sendToBack(this)"
+                    />
+                    <img
+                        src="images/hero-afya.png"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 -rotate-3 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
+                        onclick="sendToBack(this)"
+                    />
+                    <img
+                        src="images/hero-nassconsult.png"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
+                        onclick="sendToBack(this)"
+                    />
+                    <img
+                        src="images/hero-neuraledge.png"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 rotate-3 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
+                        onclick="sendToBack(this)"
+                    />
+                    <img
+                        src="images/hero-nufasa.png"
+                        alt=""
+                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 rotate-6 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
+                        onclick="sendToBack(this)"
+                    />
+                </div>
+
+                <div class="text-center xl:w-1/2">
+                    <h1 class="text-3xl font-light text-white md:text-5xl">
+                        Nicole Wasike.
+                    </h1>
+                    <h2 class="mt-2 text-xl text-white md:text-2xl">
+                        Front-End Developer & UI/UX Designer.
+                    </h2>
+                    <div class="mt-6 flex justify-center">
+                        <button
+                            onclick="location.href='#about'"
+                            class="rounded-full bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_5px_rgba(255,255,255,0.2)] transition hover:bg-neutral-700 sm:text-base"
+                        >
+                            ↓
+                        </button>
+                    </div>
+                </div>
             </section>
 
             <section
                 id="about"
-                class="flex flex-col items-center justify-center px-8 md:px-20"
+                class="flex min-h-screen flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
             >
-                <div
-                    class="mb-8 grid w-full grid-cols-1 items-center text-4xl md:grid-cols-2"
+                <h2
+                    class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
                 >
-                    <p
-                        class="flex justify-center text-4xl font-black uppercase md:justify-start md:text-left md:text-7xl"
-                    >
-                        About
-                    </p>
+                    About
+                </h2>
+
+                <div
+                    class="grid auto-rows-auto grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+                >
                     <div
-                        class="flex justify-center md:items-center md:justify-end"
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
                     >
+                        <p class="text-sm md:text-base">
+                            I’m Nicole Wasike — a front-end developer and UI/UX
+                            designer from Nairobi, Kenya. I get inspired by
+                            people and patterns, shaping digital experiences
+                            that feel intuitive and alive. My approach is
+                            flexible, multi-disciplinary, and all about
+                            collaboration. Outside the screen, I’m always
+                            exploring — new cities, local flavors, stories, and
+                            typography. I collect little curiosities too:
+                            plants, currencies, and things that spark my
+                            creativity.
+                        </p>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                    >
+                        <h3 class="mb-4 font-black uppercase">Experience</h3>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li>Freelancer (September 2025–Present)</li>
+                            <li>
+                                Software Developer Intern – SoftClans (July -
+                                September 2025)
+                            </li>
+                            <li>
+                                Customer Experience Intern – Wavetec (March -
+                                May 2025)
+                            </li>
+                            <li>
+                                Front-End Developer Intern – Envisage (January -
+                                March 2024)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                    >
+                        <h3 class="font-black uppercase">Education</h3>
+                        <p class="mt-2 text-sm md:text-base">
+                            2021–2025<br />Strathmore University<br />BSc
+                            Informatics and Computer Science
+                        </p>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                    >
+                        <h3 class="font-black uppercase">Skills</h3>
+                        <ul class="mt-2 list-inside text-sm md:text-base">
+                            <li>React.js & Next.js</li>
+                            <li>HTML & CSS</li>
+                            <li>JavaScript & Typescript</li>
+                            <li>WordPress & Framer</li>
+                            <li>Figma & Photoshop</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                    >
+                        <h3 class="font-black uppercase">Languages</h3>
+                        <p class="mt-2 text-sm md:text-base">
+                            English – Fluent<br />Kiswahili – Intermediate
+                        </p>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-800/40 p-6 shadow-[0_0_5px_rgba(255,255,255,0.2)]"
+                    >
+                        <h3 class="font-black uppercase">Curriculum Vitae</h3>
+                        <p class="mt-2 text-sm md:text-base">
+                            See my complete professional journey
+                        </p>
                         <button
-                            class="rounded-2xl bg-black px-6 py-3 text-2xl font-bold uppercase text-white"
-                            onclick="window.open('pdfs/Nicole Wasike - CV (Freelance).pdf', '_blank')"
+                            class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_5px_rgba(255,255,255,0.2)] transition hover:bg-neutral-700 md:text-base"
+                            onclick="window.open('pdfs/Nicole Wasike - CV.pdf', '_blank')"
                         >
                             View CV
                         </button>
-                    </div>
-                </div>
-
-                <div
-                    class="flex flex-col gap-8 text-lg font-light md:grid md:grid-cols-2 md:text-xl"
-                >
-                    <div class="text-left md:text-left">
-                        <p>
-                            I am Nicole Wasike. Front-end developer and UI/UX
-                            designer building responsive websites on WordPress
-                            and from the ground up.
-                        </p>
-                        <h3 class="mt-6 font-black uppercase">Experience</h3>
-                        <ul class="list-inside">
-                            <li>Freelancer (2025 – Present)</li>
-                            <li>
-                                Software Developer Intern – SoftClans (2025)
-                            </li>
-                            <li>Customer Experience Intern – Wavetec (2025)</li>
-                            <li>
-                                Front-End Developer Intern – Envisage (2024)
-                            </li>
-                        </ul>
-                        <h3 class="mt-6 font-black uppercase">Languages</h3>
-                        <p>English - Fluent<br />Kiswahili - Intermediate</p>
-                    </div>
-                    <div class="text-left md:text-right">
-                        <h3 class="font-black uppercase">Education</h3>
-                        <p>
-                            2021 - 2025<br />Strathmore University<br />BSc
-                            Informatics and Computer Science
-                        </p>
-                        <h3 class="mt-6 font-black uppercase">Skills</h3>
-                        <ul class="list-inside">
-                            <li>React.js & Next.js</li>
-                            <li>HTML, CSS & JavaScript</li>
-                            <li>WordPress</li>
-                            <li>Figma</li>
-                        </ul>
                     </div>
                 </div>
             </section>
 
             <section
                 id="projects"
-                class="flex flex-col items-center justify-center px-4 md:px-20"
+                class="flex min-h-screen flex-col items-center justify-center px-4 md:px-20"
             >
                 <h2
                     class="mb-8 text-center text-4xl font-black uppercase md:text-7xl"
@@ -339,8 +417,27 @@
             </section>
 
             <section
-                id="contact"
+                id="services"
                 class="flex flex-col items-center justify-center px-4 md:px-20"
+            >
+                <h2
+                    class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
+                >
+                    Services
+                </h2>
+
+                <div class="space-y-2 text-center text-2xl md:text-4xl">
+                    <div>UI/UX Design</div>
+                    <div>Front-End Development</div>
+                    <div>WordPress Development</div>
+                    <div>Responsive Design</div>
+                    <div>UI Prototyping</div>
+                </div>
+            </section>
+
+            <section
+                id="contact"
+                class="flex min-h-screen flex-col items-center justify-center px-4 md:px-20"
             >
                 <div
                     class="flex max-w-6xl flex-col gap-8 p-4 text-center lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:text-left"
@@ -360,27 +457,27 @@
                         <h1 class="text-4xl font-black uppercase md:text-7xl">
                             Contact
                         </h1>
-                        <div class="flex items-center space-x-4 font-light">
+                        <div class="flex items-center space-x-4">
                             <img
-                                src="logos/phone-icon.png"
+                                src="logos/phone-icon-light.png"
                                 alt="Phone"
-                                class="h-6 w-6 md:h-8 md:w-8"
+                                class="h-4 w-4 md:h-4 md:w-4"
                             />
                             <span>+254 720 018 492</span>
                         </div>
-                        <div class="flex items-center space-x-4 font-light">
+                        <div class="flex items-center space-x-4">
                             <img
-                                src="logos/email-icon.png"
+                                src="logos/email-icon-light.png"
                                 alt="Email"
-                                class="h-6 w-6 md:h-8 md:w-8"
+                                class="h-4 w-4 md:h-4 md:w-4"
                             />
                             <span>njnwasike@gmail.com</span>
                         </div>
-                        <div class="flex items-center space-x-4 font-light">
+                        <div class="flex items-center space-x-4">
                             <img
-                                src="logos/location-icon.png"
+                                src="logos/location-icon-light.png"
                                 alt="Location"
-                                class="h-6 w-6 md:h-8 md:w-8"
+                                class="h-4 w-4 md:h-4 md:w-4"
                             />
                             <span>Nairobi, Kenya</span>
                         </div>
@@ -388,6 +485,15 @@
                 </div>
             </section>
         </main>
+
+        <script>
+            function sendToBack(el) {
+                el.parentNode.prepend(el);
+                setTimeout(() => {
+                    el.style.transform = "";
+                }, 150);
+            }
+        </script>
 
         <script>
             const menuBtn = document.getElementById("menu-btn");
@@ -405,21 +511,6 @@
             function closeMenu() {
                 mobileMenu.classList.add("hidden");
             }
-        </script>
-
-        <script>
-            const roles = [
-                "Front-End Developer.",
-                "WordPress Builder.",
-                "UI/UX Designer.",
-            ];
-            let i = 0;
-            const roleSpan = document.getElementById("roles");
-
-            setInterval(() => {
-                i = (i + 1) % roles.length;
-                roleSpan.textContent = roles[i];
-            }, 1500);
         </script>
 
         <script>
