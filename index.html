@@ -57,7 +57,7 @@
             <nav class="hidden gap-8 text-xl font-light uppercase lg:flex">
                 <a href="#home" class="hover:text-white">Home</a>
                 <a href="#about" class="hover:text-white">About</a>
-                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="#mockups" class="hover:text-white">Mockups</a>
                 <a href="#services" class="hover:text-white">Services</a>
                 <a href="#contact" class="hover:text-white">Contact</a>
             </nav>
@@ -94,10 +94,10 @@
                         >About</a
                     >
                     <a
-                        href="#projects"
+                        href="#mockups"
                         class="hover:text-white"
                         onclick="closeMenu()"
-                        >Projects</a
+                        >Mockups</a
                     >
                     <a
                         href="#services"
@@ -160,7 +160,7 @@
                         Nicole Wasike.
                     </h1>
                     <h2 class="mt-2 text-xl text-white md:text-2xl">
-                        Front-End Developer & UI/UX Designer.
+                        Web Developer & UI/UX Designer.
                     </h2>
                     <div class="mt-6 flex justify-center">
                         <button
@@ -190,7 +190,7 @@
                         class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
                     >
                         <p class="text-sm md:text-base">
-                            I’m Nicole Wasike — a front-end developer and UI/UX
+                            Hi, I’m Nicole Wasike, a Web developer and UI/UX
                             designer from Nairobi, Kenya. I get inspired by
                             people and patterns, shaping digital experiences
                             that feel intuitive and alive. My approach is
@@ -208,7 +208,10 @@
                     >
                         <h3 class="font-black uppercase">Experience</h3>
                         <ul class="mt-2 space-y-2 text-sm md:text-base">
-                            <li>Freelancer (September 2025–Present)</li>
+                            <li>
+                                Web Developer - Kuzi Pottery Strudio (November
+                                2025–Present)
+                            </li>
                             <li>
                                 Software Developer Intern – SoftClans (July -
                                 September 2025)
@@ -274,13 +277,13 @@
             </section>
 
             <section
-                id="projects"
+                id="mockups"
                 class="flex flex-col items-center justify-center pt-[15vh]"
             >
                 <h2
                     class="mb-8 text-center text-4xl font-black uppercase md:text-7xl"
                 >
-                    Projects
+                    Mockups
                 </h2>
 
                 <div class="glide px-20">
@@ -304,7 +307,7 @@
                                         class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                                         onclick="window.open('pdfs/neuraledge.pdf', '_blank')"
                                     >
-                                        View Project
+                                        View Mockup
                                     </button>
                                 </div>
                             </li>
@@ -327,7 +330,7 @@
                                         class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                                         onclick="window.open('pdfs/afya.pdf', '_blank')"
                                     >
-                                        View Project
+                                        View Mockup
                                     </button>
                                 </div>
                             </li>
@@ -350,7 +353,7 @@
                                         class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                                         onclick="window.open('pdfs/pamo.pdf', '_blank')"
                                     >
-                                        View Project
+                                        View Mockup
                                     </button>
                                 </div>
                             </li>
@@ -373,7 +376,7 @@
                                         class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                                         onclick="window.open('pdfs/nassconsult.pdf', '_blank')"
                                     >
-                                        View Project
+                                        View Mockup
                                     </button>
                                 </div>
                             </li>
@@ -396,7 +399,7 @@
                                         class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
                                         onclick="window.open('pdfs/nufasa.pdf', '_blank')"
                                     >
-                                        View Project
+                                        View Mockup
                                     </button>
                                 </div>
                             </li>
@@ -515,9 +518,9 @@
                 ease: "power2.out",
             });
 
-            gsap.from("#projects", {
+            gsap.from("#mockups", {
                 scrollTrigger: {
-                    trigger: "#projects",
+                    trigger: "#mockups",
                     start: "top 80%",
                 },
                 opacity: 0,
