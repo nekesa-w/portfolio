@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Portfolio - Nicole Wasike</title>
+        <title>Portfolio | Nicole Wasike</title>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css"
@@ -15,18 +15,24 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
             rel="stylesheet"
         />
         <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+        <script src="https://assets.codepen.io/16327/ScrambleTextPlugin3.min.js"></script>
+
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
                 theme: {
                     extend: {
-                        fontFamily: { inter: ["Inter", "sans-serif"] },
+                        fontFamily: {
+                            inter: ["Inter", "sans-serif"],
+                            bebas: ["Bebas Neue", "sans-serif"],
+                        },
                     },
                 },
             };
@@ -41,37 +47,64 @@
     </head>
 
     <body
-        class="font-inter flex flex-col overflow-x-hidden bg-neutral-950 font-thin text-neutral-300"
+        class="font-inter flex flex-col overflow-x-hidden bg-neutral-950 font-light text-white"
     >
-        <header
-            class="fixed left-0 right-0 top-0 z-50 flex min-h-[10vh] w-full items-center justify-between border-[1px] border-neutral-800/70 bg-neutral-950 px-4 py-2 shadow-[0_0_10px_rgba(100,100,100,0.1)] md:px-20 md:py-4"
-        >
-            <a href="#home">
-                <img
-                    src="logos/logo-light.png"
-                    alt="Logo"
-                    class="h-8 md:h-10"
-                />
-            </a>
+        <div
+            class="pointer-events-none fixed left-0 right-0 top-0 z-20 h-24 backdrop-blur-xl"
+            style="
+                mask-image: linear-gradient(
+                    to bottom,
+                    black 0%,
+                    black 30%,
+                    transparent 100%
+                );
+                -webkit-mask-image: linear-gradient(
+                    to bottom,
+                    black 0%,
+                    black 30%,
+                    transparent 100%
+                );
+            "
+        ></div>
 
-            <nav class="hidden gap-8 text-xl font-light uppercase lg:flex">
-                <a href="#home" class="hover:text-white">Home</a>
-                <a href="#about" class="hover:text-white">About</a>
-                <a href="#mockups" class="hover:text-white">Mockups</a>
-                <a href="#services" class="hover:text-white">Services</a>
-                <a href="#contact" class="hover:text-white">Contact</a>
+        <header
+            class="fixed left-4 right-4 z-30 mt-4 flex items-center justify-between rounded-xl bg-white px-4 py-4 text-base font-black uppercase text-neutral-950 md:left-20 md:right-20 md:px-12 md:py-4"
+        >
+            <nav class="hidden gap-8 lg:flex">
+                <a href="#home" class="decoration-4 hover:underline">Home</a>
+                <a href="#about" class="decoration-4 hover:underline">About</a>
+                <a href="#services" class="decoration-4 hover:underline"
+                    >Services</a
+                >
             </nav>
 
-            <button
-                id="menu-btn"
-                class="block text-3xl font-bold focus:outline-none lg:hidden"
+            <a
+                href="#"
+                onclick="location.reload()"
+                class="md:absolute md:left-1/2 md:-translate-x-1/2"
             >
+                <img src="logos/logo-sm.png" alt="Logo" class="h-8 md:h-10" />
+            </a>
+
+            <nav class="hidden gap-8 lg:flex">
+                <a href="#projects" class="decoration-4 hover:underline"
+                    >Projects</a
+                >
+                <a href="#concepts" class="decoration-4 hover:underline"
+                    >Concepts</a
+                >
+                <a href="#contact" class="decoration-4 hover:underline"
+                    >Contact</a
+                >
+            </nav>
+
+            <button id="menu-btn" class="ml-auto text-3xl font-black lg:hidden">
                 ☰
             </button>
 
             <div
                 id="mobile-menu"
-                class="fixed inset-0 flex hidden flex-col items-center justify-center space-y-10 bg-neutral-950 text-3xl font-black uppercase transition-all duration-300"
+                class="fixed inset-0 flex hidden flex-col items-center justify-center space-y-10 bg-neutral-950 text-3xl text-white transition-all duration-300"
             >
                 <button
                     id="close-menu"
@@ -83,31 +116,39 @@
                 <nav class="flex flex-col items-center space-y-8">
                     <a
                         href="#home"
-                        class="hover:text-white"
+                        class="decoration-4 hover:underline"
                         onclick="closeMenu()"
                         >Home</a
                     >
                     <a
                         href="#about"
-                        class="hover:text-white"
+                        class="decoration-4 hover:underline"
                         onclick="closeMenu()"
                         >About</a
                     >
                     <a
-                        href="#mockups"
-                        class="hover:text-white"
-                        onclick="closeMenu()"
-                        >Mockups</a
-                    >
-                    <a
                         href="#services"
-                        class="hover:text-white"
+                        class="decoration-4 hover:underline"
                         onclick="closeMenu()"
                         >Services</a
                     >
                     <a
+                        href="#projects"
+                        class="decoration-4 hover:underline"
+                        onclick="closeMenu()"
+                        >Projects</a
+                    >
+
+                    <a
+                        href="#concepts"
+                        class="decoration-4 hover:underline"
+                        onclick="closeMenu()"
+                        >Concepts</a
+                    >
+
+                    <a
                         href="#contact"
-                        class="hover:text-white"
+                        class="decoration-4 hover:underline"
                         onclick="closeMenu()"
                         >Contact</a
                     >
@@ -115,70 +156,136 @@
             </div>
         </header>
 
-        <main class="grid grid-cols-1 gap-20 pt-4">
+        <main class="z-10 grid grid-cols-1 gap-12">
             <section
                 id="home"
-                class="flex min-h-[80vh] w-full flex-col items-center justify-center px-4 pt-[5vh] md:px-20 md:pt-[10vh] lg:min-h-screen xl:flex-row"
+                class="flex min-h-screen flex-col items-center justify-center bg-white"
             >
                 <div
-                    class="relative mb-4 flex h-[60vh] w-full justify-center lg:justify-end xl:mb-2 xl:w-1/2"
+                    id="hero-pin"
+                    class="relative flex h-screen w-full items-center overflow-hidden"
                 >
-                    <img
-                        src="images/hero-pamo.png"
-                        alt=""
-                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 -rotate-6 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
-                        onclick="sendToBack(this)"
-                    />
-                    <img
-                        src="images/hero-afya.png"
-                        alt=""
-                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 -rotate-3 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
-                        onclick="sendToBack(this)"
-                    />
-                    <img
-                        src="images/hero-nassconsult.png"
-                        alt=""
-                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
-                        onclick="sendToBack(this)"
-                    />
-                    <img
-                        src="images/hero-neuraledge.png"
-                        alt=""
-                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 rotate-3 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
-                        onclick="sendToBack(this)"
-                    />
-                    <img
-                        src="images/hero-nufasa.png"
-                        alt=""
-                        class="absolute left-1/2 top-1/2 w-[60vw] -translate-x-1/2 -translate-y-1/2 rotate-6 transform cursor-pointer rounded-2xl border-[5px] border-white shadow-lg transition-transform duration-300 lg:w-[40vh] xl:w-[50vh]"
-                        onclick="sendToBack(this)"
-                    />
+                    <svg
+                        id="hero-svg"
+                        viewBox="0 0 1280 500"
+                        preserveAspectRatio="xMidYMid meet"
+                        class="w-full overflow-visible"
+                    >
+                        <defs>
+                            <mask
+                                id="circleMask"
+                                maskUnits="userSpaceOnUse"
+                                maskContentUnits="userSpaceOnUse"
+                            >
+                                <rect width="1280" height="500" fill="black" />
+
+                                <circle
+                                    id="maskCircle"
+                                    cx="-999"
+                                    cy="-999"
+                                    r="100"
+                                    fill="white"
+                                />
+                            </mask>
+                        </defs>
+
+                        <text
+                            id="slide-text-dim"
+                            x="100"
+                            y="300"
+                            fill="#333"
+                            font-size="150"
+                            font-family="Bebas Neue, sans-serif"
+                        >
+                            TURNING IDEAS INTO EXPERIENCES. WHERE DESIGN MEETS
+                            FUNCTION.
+                        </text>
+
+                        <g mask="url(#circleMask)">
+                            <circle
+                                id="visibleCircle"
+                                cx="-999"
+                                cy="-999"
+                                r="100"
+                                fill="black"
+                            />
+
+                            <text
+                                id="slide-text"
+                                x="100"
+                                y="300"
+                                fill="white"
+                                font-size="150"
+                                font-family="Bebas Neue, sans-serif"
+                            >
+                                TURNING IDEAS INTO EXPERIENCES. WHERE DESIGN
+                                MEETS FUNCTION.
+                            </text>
+                        </g>
+                    </svg>
                 </div>
 
-                <div class="text-center xl:w-1/2">
-                    <h1 class="text-3xl font-light text-white md:text-5xl">
-                        Nicole Wasike.
-                    </h1>
-                    <h2 class="mt-2 text-xl text-white md:text-2xl">
-                        Web Developer & UI/UX Designer
-                    </h2>
-                    <div class="mt-6 flex justify-center">
-                        <button
-                            onclick="location.href='#about'"
-                            class="rounded-full bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 sm:text-base"
-                        >
-                            ↓
-                        </button>
-                    </div>
-                </div>
+                <div id="scroll-spacer" class="h-[400vh]"></div>
             </section>
+
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+
+                const svgEl = document.getElementById("hero-svg");
+                const maskCircle = document.getElementById("maskCircle");
+                const visibleCircle = document.getElementById("visibleCircle");
+                const pinEl = document.getElementById("hero-pin");
+                const slideText = document.getElementById("slide-text");
+                const slideTextDim = document.getElementById("slide-text-dim");
+
+                let svgRect;
+
+                function updateBounds() {
+                    svgRect = svgEl.getBoundingClientRect();
+                }
+
+                updateBounds();
+                window.addEventListener("resize", updateBounds);
+
+                window.addEventListener("mousemove", (e) => {
+                    const scaleX = 1280 / svgRect.width;
+                    const scaleY = 500 / svgRect.height;
+
+                    const svgX = (e.clientX - svgRect.left) * scaleX;
+                    const svgY = (e.clientY - svgRect.top) * scaleY;
+
+                    gsap.to([maskCircle, visibleCircle], {
+                        attr: {
+                            cx: svgX,
+                            cy: svgY,
+                        },
+                        duration: 0.15,
+                        ease: "power2.out",
+                    });
+                });
+
+                const textWidth = slideText.getBBox().width / 2;
+
+                gsap.to([slideText, slideTextDim], {
+                    x: -textWidth,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#home",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1,
+                        pin: pinEl,
+                        anticipatePin: 1,
+                    },
+                });
+            </script>
 
             <section
                 id="about"
-                class="flex flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
+                class="flex flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
             >
                 <h2
-                    class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
+                    class="font-bebas mb-8 text-center text-6xl uppercase md:text-8xl"
                 >
                     About
                 </h2>
@@ -186,76 +293,78 @@
                 <div
                     class="grid auto-rows-auto grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
-                    <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                    >
-                        <p class="text-sm md:text-base">
-                            Hi, I’m Nicole Wasike, a Web Developer and UI/UX
-                            Designer based in Nairobi, Kenya. My approach is
-                            driven by a genuine love for creating experiences
-                            that feel as good as they look.
-                            <br />
-                            <br />
-                            Outside the screen, I’m always exploring—whether
-                            it’s discovering new cities, tasting local flavors,
-                            or getting lost in stories that spark fresh
-                            inspiration.
-                        </p>
+                    <div>
+                        <img src="images/about.png" alt="about" />
                     </div>
 
                     <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
+                        class="rounded-2xl bg-neutral-900 p-8 transition transition-all duration-300 hover:bg-neutral-800"
                     >
-                        <h3 class="font-black uppercase">Experience</h3>
+                        <h3 class="font-bebas text-3xl uppercase">Who Am I</h3>
+                        <hr class="my-6 border-t-2 border-white" />
+                        <p class="mt-2 space-y-2 text-sm md:text-base">
+                            Hi, I’m Nicole Wasike. Web Developer, Digital
+                            Product Designer, & Graphic Designer based in
+                            Nairobi, Kenya.
+                        </p>
+                        <div class="mt-4 text-sm md:text-base">
+                            <a
+                                href="pdfs/Nicole Wasike - CV.pdf"
+                                target="_blank"
+                                class="font-bold underline decoration-2 hover:no-underline"
+                            >
+                                View CV ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="rounded-2xl bg-neutral-900 p-8 transition transition-all duration-300 hover:bg-neutral-800"
+                    >
+                        <h3 class="font-bebas text-3xl uppercase">
+                            Experience
+                        </h3>
+                        <hr class="my-6 border-t-2 border-white" />
                         <ul class="mt-2 space-y-2 text-sm md:text-base">
+                            <li></li>
                             <li>
-                                <span class="font-semibold"
-                                    ><a
-                                        href="https://kuzipotterystudio.com/"
-                                        target="_blank"
-                                        class="text-neutral-400 hover:text-neutral-500"
-                                    >
-                                        Web Developer
-                                    </a></span
-                                >
-                                – Kuzi Pottery Studio (September 2025 – Present)
+                                Web Developer – Kuzi Pottery Studio
+                                <br />
+                                <div class="text-sm font-thin md:text-base">
+                                    September 2025 – Present
+                                </div>
                             </li>
                             <li>
-                                Software Developer Intern – SoftClans (July -
-                                September 2025)
+                                Software Developer Intern – SoftClans
+                                <br />
+                                <div class="text-sm font-thin md:text-base">
+                                    July - September 2025
+                                </div>
                             </li>
                             <li>
-                                Server Administrator Intern – Wavetec (March -
-                                May 2025)
+                                Server Administrator Intern – Wavetec
+                                <br />
+                                <div class="text-sm font-thin md:text-base">
+                                    March - May 2025
+                                </div>
                             </li>
                             <li>
-                                Front-End Developer Intern – Envisage (January -
-                                March 2024)
+                                Front-End Developer Intern – Envisage
+                                <br />
+                                <div class="text-sm font-thin md:text-base">
+                                    January - March 2024
+                                </div>
                             </li>
                         </ul>
                     </div>
 
                     <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
+                        class="rounded-2xl bg-neutral-900 p-8 transition transition-all duration-300 hover:bg-neutral-800"
                     >
-                        <h3 class="font-black uppercase">Education</h3>
-                        <p class="mt-2 text-sm md:text-base">
-                            2021–2025<br />Strathmore University<br />BSc
-                            Informatics and Computer Science
-                        </p>
-                        <br />
-                        <p class="mt-2 text-sm md:text-base">
-                            2017-2019 <br />
-                            Rosslyn Academy <br />
-                            U.S. High School Diploma Highest Honours <br />
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                    >
-                        <h3 class="font-black uppercase">Skills</h3>
-
+                        <h3 class="font-bebas text-3xl uppercase">
+                            Technical Skills
+                        </h3>
+                        <hr class="my-6 border-t-2 border-white" />
                         <div class="mt-4 flex flex-wrap items-center gap-6">
                             <div class="group relative">
                                 <img
@@ -364,223 +473,343 @@
                     </div>
 
                     <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
+                        class="rounded-2xl bg-neutral-900 p-8 transition transition-all duration-300 hover:bg-neutral-800"
                     >
-                        <h3 class="font-black uppercase">Languages</h3>
-                        <p class="mt-2 text-sm md:text-base">
-                            English – Fluent<br />Kiswahili – Intermediate
+                        <h3 class="font-bebas text-3xl uppercase">
+                            Soft Skills
+                        </h3>
+                        <hr class="my-6 border-t-2 border-white" />
+                        <p class="mt-2 space-y-2 text-sm md:text-base">
+                            Problem Solving, Creativity, Communication, Team
+                            Collaboration, Critical Thinking, Time Management,
+                            Adaptability, Attention to Detail, & Leadership.
                         </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                    >
-                        <h3 class="font-black uppercase">Curriculum Vitae</h3>
-                        <p class="mt-2 text-sm md:text-base">
-                            See my complete professional journey
-                        </p>
-                        <button
-                            class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                            onclick="window.open('pdfs/Nicole Wasike - CV.pdf', '_blank')"
-                        >
-                            View CV
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section
-                id="mockups"
-                class="flex flex-col items-center justify-center pt-[15vh]"
-            >
-                <h2
-                    class="mb-8 text-center text-4xl font-black uppercase md:text-7xl"
-                >
-                    Mockups
-                </h2>
-
-                <div class="glide px-20">
-                    <div data-glide-el="track" class="glide__track">
-                        <ul class="glide__slides">
-                            <li class="glide__slide">
-                                <div
-                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                                >
-                                    <img
-                                        src="images/neuraledge.png"
-                                        alt="NeuralEdge"
-                                        class="h-48 w-full rounded-lg object-cover"
-                                    />
-                                    <h3
-                                        class="mt-4 text-center text-base uppercase"
-                                    >
-                                        NeuralEdge: AI SaaS Web App
-                                    </h3>
-                                    <button
-                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                                        onclick="window.open('pdfs/neuraledge.pdf', '_blank')"
-                                    >
-                                        View Mockup
-                                    </button>
-                                </div>
-                            </li>
-
-                            <li class="glide__slide">
-                                <div
-                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                                >
-                                    <img
-                                        src="images/afya.png"
-                                        alt="AfyaZone"
-                                        class="h-48 w-full rounded-lg object-cover"
-                                    />
-                                    <h3
-                                        class="mt-4 text-center text-base uppercase"
-                                    >
-                                        AfyaZone: Fitness Mobile App
-                                    </h3>
-                                    <button
-                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                                        onclick="window.open('pdfs/afya.pdf', '_blank')"
-                                    >
-                                        View Mockup
-                                    </button>
-                                </div>
-                            </li>
-
-                            <li class="glide__slide">
-                                <div
-                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                                >
-                                    <img
-                                        src="images/pamo.png"
-                                        alt="Pamo"
-                                        class="h-48 w-full rounded-lg object-cover"
-                                    />
-                                    <h3
-                                        class="mt-4 text-center text-base uppercase"
-                                    >
-                                        Pamo: Food Donation Website
-                                    </h3>
-                                    <button
-                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                                        onclick="window.open('pdfs/pamo.pdf', '_blank')"
-                                    >
-                                        View Mockup
-                                    </button>
-                                </div>
-                            </li>
-
-                            <li class="glide__slide">
-                                <div
-                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                                >
-                                    <img
-                                        src="images/nassconsult.png"
-                                        alt="NassConsult"
-                                        class="h-48 w-full rounded-lg object-cover"
-                                    />
-                                    <h3
-                                        class="mt-4 text-center text-base uppercase"
-                                    >
-                                        NassConsult: Real Estate Website
-                                    </h3>
-                                    <button
-                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                                        onclick="window.open('pdfs/nassconsult.pdf', '_blank')"
-                                    >
-                                        View Mockup
-                                    </button>
-                                </div>
-                            </li>
-
-                            <li class="glide__slide">
-                                <div
-                                    class="flex flex-col items-center overflow-hidden rounded-2xl border-[1px] border-neutral-800/60 bg-neutral-800/40 p-6 shadow-[0_0_10px_rgba(100,100,100,0.1)]"
-                                >
-                                    <img
-                                        src="images/nufasa.png"
-                                        alt="Nufasa"
-                                        class="h-48 w-full rounded-lg object-cover"
-                                    />
-                                    <h3
-                                        class="mt-4 text-center text-base uppercase"
-                                    >
-                                        Nufasa: Tours and Travels Website
-                                    </h3>
-                                    <button
-                                        class="mt-4 rounded-2xl bg-neutral-400/10 p-4 text-sm font-black uppercase shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                                        onclick="window.open('pdfs/nufasa.pdf', '_blank')"
-                                    >
-                                        View Mockup
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div
-                        class="glide__arrows mt-8 flex justify-center gap-4"
-                        data-glide-el="controls"
-                    >
-                        <button
-                            class="glide__arrow glide__arrow--left rounded-2xl border-0 bg-neutral-400/10 text-sm shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                            data-glide-dir="<"
-                        >
-                            ←
-                        </button>
-
-                        <button
-                            class="glide__arrow glide__arrow--right rounded-2xl border-0 bg-neutral-400/10 text-sm shadow-[0_0_10px_rgba(100,100,100,0.1)] transition hover:bg-neutral-700 md:text-base"
-                            data-glide-dir=">"
-                        >
-                            →
-                        </button>
                     </div>
                 </div>
             </section>
 
             <section
                 id="services"
-                class="flex flex-col items-center justify-center px-4 pt-[15vh] md:px-20"
+                class="flex flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
             >
                 <h2
-                    class="mb-8 text-center text-5xl font-black uppercase md:text-7xl"
+                    class="font-bebas mb-8 text-center text-6xl uppercase md:text-8xl"
                 >
                     Services
                 </h2>
 
-                <div class="space-y-2 text-center text-2xl md:text-4xl">
-                    <div>Web Development</div>
-                    <div>WordPress Development</div>
-                    <div>UI/UX Design</div>
-                    <div>UI Prototyping</div>
-                    <div>Responsive Design</div>
+                <div class="mt-6 text-sm md:text-base">
+                    <div
+                        class="grid grid-cols-12 gap-6 border-t-2 border-white py-8 transition transition-all duration-300 hover:-translate-x-4"
+                    >
+                        <div class="font-bebas col-span-2 text-2xl">01</div>
+
+                        <div class="col-span-4">
+                            <h3 class="font-bebas text-2xl md:text-3xl">
+                                Web Development
+                            </h3>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p>
+                                Custom websites and web applications built with
+                                modern technologies, optimized for performance,
+                                responsiveness, and scalability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-12 gap-6 border-t-2 border-white py-8 transition transition-all duration-300 hover:-translate-x-4"
+                    >
+                        <div class="font-bebas col-span-2 text-2xl">02</div>
+
+                        <div class="col-span-4">
+                            <h3 class="font-bebas text-2xl md:text-3xl">
+                                WordPress Development
+                            </h3>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p>
+                                Professional WordPress websites with custom
+                                themes, plugins, and content management
+                                solutions tailored to your business.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-12 gap-6 border-t-2 border-white py-8 transition transition-all duration-300 hover:-translate-x-4"
+                    >
+                        <div class="font-bebas col-span-2 text-2xl">03</div>
+
+                        <div class="col-span-4">
+                            <h3 class="font-bebas text-2xl md:text-3xl">
+                                UI/UX Design
+                            </h3>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p>
+                                Intuitive and user-centered interfaces designed
+                                to improve usability, engagement, and customer
+                                satisfaction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-12 gap-6 border-t-2 border-white py-8 transition transition-all duration-300 hover:-translate-x-4"
+                    >
+                        <div class="font-bebas col-span-2 text-2xl">04</div>
+
+                        <div class="col-span-4">
+                            <h3 class="font-bebas text-2xl md:text-3xl">
+                                Digital Product Design
+                            </h3>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p>
+                                From research and wireframes to interactive
+                                prototypes, creating products that balance
+                                business goals and user needs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-12 gap-6 border-t-2 border-white py-8 transition transition-all duration-300 hover:-translate-x-4"
+                    >
+                        <div class="font-bebas col-span-2 text-2xl">05</div>
+
+                        <div class="col-span-4">
+                            <h3 class="font-bebas text-2xl md:text-3xl">
+                                Graphic Design
+                            </h3>
+                        </div>
+
+                        <div class="col-span-6">
+                            <p>
+                                Branding, marketing materials, social media
+                                creatives, and visual assets that communicate
+                                clearly and leave a lasting impression.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="projects"
+                class="flex flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
+            >
+                <h2
+                    class="font-bebas mb-12 text-center text-6xl uppercase md:text-8xl"
+                >
+                    Projects
+                </h2>
+
+                <div
+                    class="flex w-full flex-wrap items-center justify-center gap-12 px-6 text-sm md:text-base"
+                >
+                    <div class="flex flex-col items-center">
+                        <a
+                            href="https://kuzipotterystudio.com"
+                            target="_blank"
+                            class="transition duration-300 hover:scale-110"
+                        >
+                            <img
+                                src="images/kuzipotterystudio.png"
+                                alt="Kuzi Pottery"
+                                class="h-40 w-auto object-contain"
+                            />
+                        </a>
+
+                        <a
+                            href="https://kuzipotterystudio.com"
+                            target="_blank"
+                            class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                        >
+                            Visit Project ↗
+                        </a>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <a
+                            href="https://shinanaturals.co.ke"
+                            target="_blank"
+                            class="transition duration-300 hover:scale-110"
+                        >
+                            <img
+                                src="images/shinanaturals.png"
+                                alt="Shina Naturals"
+                                class="h-40 w-auto object-contain"
+                            />
+                        </a>
+
+                        <a
+                            href="https://shinanaturals.co.ke"
+                            target="_blank"
+                            class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                        >
+                            Visit Project ↗
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                id="concepts"
+                class="flex flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
+            >
+                <h2
+                    class="font-bebas mb-8 text-center text-6xl uppercase md:text-8xl"
+                >
+                    Concepts
+                </h2>
+
+                <div class="glide px-4 text-sm md:px-20 md:text-base">
+                    <div data-glide-el="track" class="glide__track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <div
+                                    class="mockup-card flex flex-col items-center overflow-hidden p-8 transition-all duration-500"
+                                >
+                                    <img
+                                        src="images/neuraledge.png"
+                                        alt="NeuralEdge"
+                                        class="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <h3 class="mt-4 text-center">
+                                        NeuralEdge: AI SaaS Web App
+                                    </h3>
+                                    <a
+                                        href="pdfs/neuraledge.pdf"
+                                        target="_blank"
+                                        class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                                    >
+                                        Visit Mockup ↗
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div
+                                    class="mockup-card flex flex-col items-center overflow-hidden p-8 transition-all duration-500"
+                                >
+                                    <img
+                                        src="images/afya.png"
+                                        alt="AfyaZone"
+                                        class="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <h3 class="mt-4 text-center">
+                                        AfyaZone: Fitness Mobile App
+                                    </h3>
+                                    <a
+                                        href="pdfs/afya.pdf"
+                                        target="_blank"
+                                        class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                                    >
+                                        Visit Mockup ↗
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div
+                                    class="mockup-card flex flex-col items-center overflow-hidden p-8 transition-all duration-500"
+                                >
+                                    <img
+                                        src="images/pamo.png"
+                                        alt="Pamo"
+                                        class="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <h3 class="mt-4 text-center">
+                                        Pamo: Food Donation Website
+                                    </h3>
+                                    <a
+                                        href="pdfs/pamo.pdf"
+                                        target="_blank"
+                                        class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                                    >
+                                        Visit Mockup ↗
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div
+                                    class="mockup-card flex flex-col items-center overflow-hidden p-8 transition-all duration-500"
+                                >
+                                    <img
+                                        src="images/nassconsult.png"
+                                        alt="NassConsult"
+                                        class="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <h3 class="mt-4 text-center">
+                                        NassConsult: Real Estate Website
+                                    </h3>
+                                    <a
+                                        href="pdfs/nassconsult.pdf"
+                                        target="_blank"
+                                        class="mt-3 font-bold underline decoration-2 hover:no-underline"
+                                    >
+                                        Visit Mockup ↗
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div
+                                    class="mockup-card flex flex-col items-center overflow-hidden p-8 transition-all duration-500"
+                                >
+                                    <img
+                                        src="images/nufasa.png"
+                                        alt="Nufasa"
+                                        class="h-48 w-full rounded-lg object-cover"
+                                    />
+                                    <h3 class="mt-4 text-center">
+                                        Nufasa: Tours and Travels Website
+                                    </h3>
+                                    <a
+                                        href="pdfs/nufasa.pdf"
+                                        target="_blank"
+                                        class="mt-3 text-sm font-bold underline decoration-2 hover:no-underline"
+                                    >
+                                        Visit Mockup ↗
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <section
                 id="contact"
-                class="flex min-h-screen flex-col items-center justify-center px-4 md:px-20"
+                class="flex min-h-screen flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
             >
                 <div
-                    class="flex max-w-6xl flex-col gap-8 p-4 text-center lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:text-left"
+                    class="flex max-w-6xl flex-col gap-8 p-4 text-center text-sm md:text-base lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:text-left"
                 >
                     <div
                         class="flex w-full justify-center lg:w-1/2 lg:justify-end"
                     >
                         <h2
-                            class="text-4xl font-black uppercase md:text-7xl lg:text-right"
+                            class="font-bebas text-6xl uppercase md:text-8xl lg:text-right"
                         >
                             Let's <br />Work <br />Together
                         </h2>
                     </div>
+
                     <div
-                        class="flex w-full flex-col items-center space-y-4 text-lg md:text-xl lg:w-1/2 lg:items-start"
+                        class="flex w-full flex-col items-center space-y-4 text-sm md:text-base lg:w-1/2 lg:items-start"
                     >
-                        <h1 class="text-4xl font-black uppercase md:text-7xl">
+                        <h2 class="font-bebas text-6xl uppercase md:text-8xl">
                             Contact
-                        </h1>
+                        </h2>
                         <div class="flex items-center space-x-4">
                             <img
                                 src="logos/phone-icon-light.png"
@@ -611,70 +840,6 @@
         </main>
 
         <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.from("#home", {
-                opacity: 0,
-                y: -100,
-                duration: 2,
-                ease: "power3.out",
-            });
-
-            gsap.from("#about", {
-                scrollTrigger: {
-                    trigger: "#about",
-                    start: "top 80%",
-                },
-                opacity: 0,
-                scale: 0.9,
-                duration: 2,
-                ease: "power2.out",
-            });
-
-            gsap.from("#mockups", {
-                scrollTrigger: {
-                    trigger: "#mockups",
-                    start: "top 80%",
-                },
-                opacity: 0,
-                scale: 1.2,
-                duration: 2,
-                ease: "power2.out",
-            });
-
-            gsap.from("#services", {
-                scrollTrigger: {
-                    trigger: "#services",
-                    start: "top 80%",
-                },
-                opacity: 0,
-                y: -100,
-                duration: 2,
-                ease: "power2.out",
-            });
-
-            gsap.from("#contact", {
-                scrollTrigger: {
-                    trigger: "#contact",
-                    start: "top 80%",
-                },
-                opacity: 0,
-                x: -40,
-                duration: 2,
-                ease: "power2.out",
-            });
-        </script>
-
-        <script>
-            function sendToBack(el) {
-                el.parentNode.prepend(el);
-                setTimeout(() => {
-                    el.style.transform = "";
-                }, 150);
-            }
-        </script>
-
-        <script>
             const menuBtn = document.getElementById("menu-btn");
             const mobileMenu = document.getElementById("mobile-menu");
             const closeMenuBtn = document.getElementById("close-menu");
@@ -693,13 +858,108 @@
         </script>
 
         <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.fromTo(
+                "#about",
+                { opacity: 0, scale: 0.8 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#about",
+                        start: "top 80%",
+                        end: "top 5%",
+                        scrub: 4,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#services",
+                { opacity: 0, scale: 1.2 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#services",
+                        start: "top 80%",
+                        end: "top 5%",
+                        scrub: 4,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#projects",
+                { opacity: 0, x: 40 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#projects",
+                        start: "top 80%",
+                        end: "top 5%",
+                        scrub: 4,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#concepts",
+                { opacity: 0, x: -40 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#concepts",
+                        start: "top 80%",
+                        end: "top 5%",
+                        scrub: 4,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#contact",
+                { opacity: 0, scale: 1.2, y: -40 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#contact",
+                        start: "top 80%",
+                        end: "top 1%",
+                        scrub: 4,
+                    },
+                },
+            );
+        </script>
+
+        <script>
+            function sendToBack(el) {
+                el.parentNode.prepend(el);
+                setTimeout(() => {
+                    el.style.transform = "";
+                }, 150);
+            }
+        </script>
+
+        <script>
             new Glide(".glide", {
                 type: "carousel",
                 perView: 3,
-                gap: 20,
+                gap: 10,
                 focusAt: "center",
-                autoplay: false,
-                animationDuration: 500,
+                autoplay: 2000,
+                hoverpause: true,
+                animationDuration: 300,
                 breakpoints: {
                     1024: { perView: 2 },
                     768: { perView: 1 },
