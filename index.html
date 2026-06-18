@@ -226,58 +226,6 @@
                 <div id="scroll-spacer" class="h-[400vh]"></div>
             </section>
 
-            <script>
-                gsap.registerPlugin(ScrollTrigger);
-
-                const svgEl = document.getElementById("hero-svg");
-                const maskCircle = document.getElementById("maskCircle");
-                const visibleCircle = document.getElementById("visibleCircle");
-                const pinEl = document.getElementById("hero-pin");
-                const slideText = document.getElementById("slide-text");
-                const slideTextDim = document.getElementById("slide-text-dim");
-
-                let svgRect;
-
-                function updateBounds() {
-                    svgRect = svgEl.getBoundingClientRect();
-                }
-
-                updateBounds();
-                window.addEventListener("resize", updateBounds);
-
-                window.addEventListener("mousemove", (e) => {
-                    const scaleX = 1280 / svgRect.width;
-                    const scaleY = 500 / svgRect.height;
-
-                    const svgX = (e.clientX - svgRect.left) * scaleX;
-                    const svgY = (e.clientY - svgRect.top) * scaleY;
-
-                    gsap.to([maskCircle, visibleCircle], {
-                        attr: {
-                            cx: svgX,
-                            cy: svgY,
-                        },
-                        duration: 0.15,
-                        ease: "power2.out",
-                    });
-                });
-
-                const textWidth = slideText.getBBox().width / 2;
-
-                gsap.to([slideText, slideTextDim], {
-                    x: -textWidth,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "#home",
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1,
-                        pin: pinEl,
-                        anticipatePin: 1,
-                    },
-                });
-            </script>
-
             <section
                 id="about"
                 class="flex flex-col items-center justify-center px-4 pt-[20vh] md:px-20"
@@ -853,6 +801,58 @@
             function closeMenu() {
                 mobileMenu.classList.add("hidden");
             }
+        </script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const svgEl = document.getElementById("hero-svg");
+            const maskCircle = document.getElementById("maskCircle");
+            const visibleCircle = document.getElementById("visibleCircle");
+            const pinEl = document.getElementById("hero-pin");
+            const slideText = document.getElementById("slide-text");
+            const slideTextDim = document.getElementById("slide-text-dim");
+
+            let svgRect;
+
+            function updateBounds() {
+                svgRect = svgEl.getBoundingClientRect();
+            }
+
+            updateBounds();
+            window.addEventListener("resize", updateBounds);
+
+            window.addEventListener("mousemove", (e) => {
+                const scaleX = 1280 / svgRect.width;
+                const scaleY = 500 / svgRect.height;
+
+                const svgX = (e.clientX - svgRect.left) * scaleX;
+                const svgY = (e.clientY - svgRect.top) * scaleY;
+
+                gsap.to([maskCircle, visibleCircle], {
+                    attr: {
+                        cx: svgX,
+                        cy: svgY,
+                    },
+                    duration: 0.15,
+                    ease: "power2.out",
+                });
+            });
+
+            const textWidth = slideText.getBBox().width / 2;
+
+            gsap.to([slideText, slideTextDim], {
+                x: -textWidth,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#home",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1,
+                    pin: pinEl,
+                    anticipatePin: 1,
+                },
+            });
         </script>
 
         <script>
