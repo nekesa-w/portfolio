@@ -222,7 +222,7 @@
                     </svg>
                 </div>
 
-                <div id="scroll-spacer" class="h-[400vh]"></div>
+                <div id="scroll-spacer" class="h-[100vh]"></div>
             </section>
 
             <section
@@ -838,7 +838,7 @@
                 });
             });
 
-            const textWidth = slideText.getBBox().width / 2;
+            const textWidth = slideText.getBBox().width;
 
             gsap.to([slideText, slideTextDim], {
                 x: -textWidth,
