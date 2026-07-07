@@ -185,7 +185,7 @@
                     id="home"
                     class="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 pt-20"
                 >
-                    <div class="w-90 z-20 mx-auto max-w-7xl">
+                    <div id="home-text" class="w-90 z-20 mx-auto max-w-7xl">
                         <h1
                             class="font-bebas text-[clamp(4rem,10vw,9rem)] leading-[0.9] tracking-tight text-black"
                         >
@@ -762,7 +762,7 @@
                             class="flex w-full flex-col items-center space-y-4 text-sm md:text-base lg:w-1/2 lg:items-start"
                         >
                             <h2
-                                class="font-bebas text-4xl uppercase md:text-6xl"
+                                class="font-bebas text-5xl uppercase md:text-7xl"
                             >
                                 Contact
                             </h2>
@@ -818,6 +818,22 @@
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.fromTo(
+                "#home-text",
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: -40,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#home",
+                        start: "bottom 90%",
+                        end: "bottom bottom",
+                        scrub: 3,
+                    },
+                },
+            );
+
+            gsap.fromTo(
                 "#about",
                 { opacity: 0, scale: 0.8 },
                 {
@@ -828,7 +844,23 @@
                         trigger: "#about",
                         start: "top 80%",
                         end: "top 5%",
-                        scrub: 4,
+                        scrub: 3,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#about",
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: -40,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#about",
+                        start: "bottom 90%",
+                        end: "+=500",
+                        scrub: 3,
                     },
                 },
             );
@@ -844,7 +876,23 @@
                         trigger: "#services",
                         start: "top 80%",
                         end: "top 5%",
-                        scrub: 4,
+                        scrub: 3,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#services",
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: -40,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#services",
+                        start: "bottom 90%",
+                        end: "+=500",
+                        scrub: 3,
                     },
                 },
             );
@@ -860,7 +908,23 @@
                         trigger: "#projects",
                         start: "top 80%",
                         end: "top 5%",
-                        scrub: 4,
+                        scrub: 3,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#projects",
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: -40,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#projects",
+                        start: "bottom 90%",
+                        end: "+=500",
+                        scrub: 3,
                     },
                 },
             );
@@ -876,7 +940,23 @@
                         trigger: "#concepts",
                         start: "top 80%",
                         end: "top 5%",
-                        scrub: 4,
+                        scrub: 3,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                "#concepts",
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0,
+                    y: -40,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#concepts",
+                        start: "bottom 90%",
+                        end: "+=500",
+                        scrub: 3,
                     },
                 },
             );
@@ -893,7 +973,7 @@
                         trigger: "#contact",
                         start: "top 80%",
                         end: "top 1%",
-                        scrub: 4,
+                        scrub: 3,
                     },
                 },
             );
